@@ -44,7 +44,7 @@ OBJS =	ft_printf.o \
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Werror -Wextra -c $(SRCS) ./includes/libft/libft.a -I includes/libft/
+	gcc -Wall -Werror -Wextra -c $(SRCS) -I includes/libft/
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 

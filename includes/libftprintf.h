@@ -13,7 +13,7 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-# include "./libft/libft.h"
+# include "libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
@@ -54,7 +54,7 @@ size_t ft_printf_s(va_list ap, t_param params);
 void	ft_print_blank(t_param params, size_t length);
 
 
-// Extras/Utilities
+// Extras/Utilities gcc -Wall -Werror -Wextra -c $(SRCS) -I /includes/
 int	ft_str_contains(char *str, char c);
 size_t ft_max_number(size_t a, size_t b);
 void	ft_putchar_n_bytes(char c, size_t n);

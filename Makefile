@@ -27,6 +27,7 @@ SRCS  = ./src/ft_printf.c \
 				./src/ft_putchar_n_bytes.c \
 				./src/ft_str_contains.c \
 				./src/ft_wstrlen.c \
+				./src/ft_printf_c.c \
 
 OBJS =	ft_printf.o \
 				ft_printf_params_init.o \
@@ -41,6 +42,7 @@ OBJS =	ft_printf.o \
 				ft_putchar_n_bytes.o \
 				ft_str_contains.o \
 				ft_wstrlen.o \
+				ft_printf_c.o \
 
 LIB_OBJS = includes/libft/ft_memset.o \
 			includes/libft/ft_bzero.o \

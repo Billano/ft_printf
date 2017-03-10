@@ -12,7 +12,7 @@
 
 #include "../includes/libftprintf.h"
 
-void	ft_printf_print_lc(t_param *params, wchar_t *str)
+void	ft_printf_print_lc(wint_t n)
 {
 	if (n <= 127)
 		ft_putchar(n);

@@ -107,7 +107,7 @@ RM = rm -f
 
 LIBS = ./includes/libft/libft.a
 
-all: $(NAME)
+all: fclean $(NAME)
 
 $(OBJS):
 	gcc $(CFLAG) $(SRCS)

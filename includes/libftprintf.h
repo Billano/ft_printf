@@ -50,9 +50,13 @@ size_t ft_printf_ls(va_list ap, t_param *params);
 void ft_printf_print_s(t_param *params, char *str);
 size_t ft_printf_s(va_list ap, t_param *params);
 
+// c, C
+void	ft_printf_print_lc(t_param *params, wchar_t *str);
+size_t	ft_printf_lc(va_list ap, t_param *params);
+size_t	ft_printf_c(va_list ap, t_param *params);
+
 //flags
 void	ft_print_blank(t_param *params, size_t length);
-
 
 // Extras/Utilities gcc -Wall -Werror -Wextra -c $(SRCS) -I /includes/
 int	ft_str_contains(char *str, char c);

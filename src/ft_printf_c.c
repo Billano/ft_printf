@@ -48,8 +48,7 @@ size_t	ft_printf_c(va_list ap, t_param *params)
 
 	if (*(params->length) != 'l')
 	{
-		c = va_arg(ap, int);
-		length = ft_strlen(c);
+		c = va_arg(ap, int);=
 		if (ft_str_contains(params->flags, '-'))
 		{
 			ft_putchar(c);

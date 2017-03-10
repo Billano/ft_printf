@@ -12,13 +12,15 @@
 
 #include "../includes/libftprintf.h"
 
-t_param	ft_printf_params_init(char *str)
+t_param	*ft_printf_params_init(char *str)
 {
-	t_param params;
+	t_param *params;
 
-	params.flags = ft_printf_flags(str);
-	params.width = ft_printf_width(str);
-	params.precision = ft_printf_precision(str);
-	params.length = ft_printf_length(str);
+	if (!(params = (t_param *)malloc(sizeof(t_param))))
+		return (NULL);
+	params->flags = ft_printf_flags(str);
+	params->width = ft_printf_width(str);
+	params->precision = ft_printf_precision(str);
+	params->length = ft_printf_length(str);
 	return (params);
 }

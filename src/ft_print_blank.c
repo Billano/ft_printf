@@ -12,14 +12,14 @@
 
 #include "../includes/libftprintf.h"
 
-void	ft_print_blank(t_param params, size_t length)
+void	ft_print_blank(t_param *params, size_t length)
 {
 	size_t i;
 
 	i = 0;
-	if (params.width > length)
+	if (params->width > length)
 	{
-		while (i < params.width - length)
+		while (i < params->width - length)
 		{
 			ft_putchar(' ');
 			i++;

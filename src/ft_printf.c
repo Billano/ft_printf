@@ -18,7 +18,7 @@ int	ft_printf(const char *format, ...)
 	char *s;
 	size_t trimmed_length;
 	size_t	str_length;
-	t_param params;
+	t_param *params = NULL;
 
 	va_start(ap, format);
 	str_length = 0;

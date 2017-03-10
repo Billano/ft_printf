@@ -12,13 +12,13 @@
 
 #include "../includes/libftprintf.h"
 
-void	ft_printf_print_lsp(t_param params, wchar_t *str)
+void	ft_printf_print_lsp(t_param *params, wchar_t *str)
 {
 	size_t	i;
 	int		n;
 
 	i = 0;
-	while (str[i] && i < params.precision)
+	while (str[i] && i < params->precision)
 	{
 		n = str[i];
 		if (n <= 127)
@@ -54,16 +54,16 @@ void	ft_printf_print_ls(wchar_t *str)
 	}
 }
 
-size_t	ft_printf_ls(va_list ap, t_param params)
+size_t	ft_printf_ls(va_list ap, t_param *params)
 {
 	wchar_t	*str;
 	size_t	length;
 
 	str = va_arg(ap, wchar_t *);
 	length = ft_wstrlen(str);
-	if (ft_str_contains(params.flags, '-'))
+	if (ft_str_contains(params->flags, '-'))
 	{
-		if (params.precision)
+		if (params->precision)
 			ft_printf_print_lsp(params, str);
 		else
 			ft_printf_print_ls(str);
@@ -72,22 +72,22 @@ size_t	ft_printf_ls(va_list ap, t_param params)
 	else
 	{
 		ft_print_blank(params, length);
-		if (params.precision)
+		if (params->precision)
 			ft_printf_print_lsp(params, str);
 		else
 			ft_printf_print_ls(str);
 	}
-	return (length);
+	return (ft_max_number(params->width, length));
 }
 
-void	ft_printf_print_s(t_param params, char *str)
+void	ft_printf_print_s(t_param *params, char *str)
 {
 	size_t i;
 
 	i = 0;
-	if (params.precision)
+	if (params->precision)
 	{
-		while (str[i] && i < params.precision)
+		while (str[i] && i < params->precision)
 			ft_putchar(str[i++]);
 	}
 	else
@@ -97,16 +97,16 @@ void	ft_printf_print_s(t_param params, char *str)
 	}
 }
 
-size_t	ft_printf_s(va_list ap, t_param params)
+size_t	ft_printf_s(va_list ap, t_param *params)
 {
 	char	*str;
 	size_t	length;
 
-	if (*params.length != 'l')
+	if (*(params->length) != 'l')
 	{
 		str = va_arg(ap, char *);
 		length = ft_strlen(str);
-		if (ft_str_contains(params.flags, '-'))
+		if (ft_str_contains(params->flags, '-'))
 		{
 			ft_printf_print_s(params, str);
 			ft_print_blank(params, length);
@@ -116,7 +116,7 @@ size_t	ft_printf_s(va_list ap, t_param params)
 			ft_print_blank(params, length);
 			ft_printf_print_s(params, str);
 		}
-		return (ft_max_number(params.width, length));
+		return (ft_max_number(params->width, length));
 	}
 	return (ft_printf_ls(ap, params));
 }

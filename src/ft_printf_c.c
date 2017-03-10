@@ -28,7 +28,7 @@ size_t	ft_printf_lc(va_list ap, t_param *params)
 {
 	wint_t	*c;
 
-	c = va_arg(ap, wint_t *);
+	c = va_arg(ap, wint_t);
 	if (ft_str_contains(params->flags, '-'))
 	{
 		ft_printf_print_lc(c);

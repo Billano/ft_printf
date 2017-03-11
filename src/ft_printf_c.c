@@ -12,7 +12,7 @@
 
 #include "../includes/libftprintf.h"
 
-void	ft_printf_print_lc(wint_t n)
+void	ft_printf_print_lc(wchar_t n)
 {
 	if (n <= 127)
 		ft_putchar_n_bytes(n, 1);
@@ -26,18 +26,20 @@ void	ft_printf_print_lc(wint_t n)
 
 size_t	ft_printf_lc(va_list ap, t_param *params)
 {
-	wint_t	n;
+	wint_t n;
+	wchar_t	c;
 
-	n = va_arg(ap, wint_t);
+	n = va_arg(ap, wchar_t);
+	c = (wchar_t)n;
 	if (ft_printf_str_contains(params->flags, '-'))
 	{
-		ft_printf_print_lc(n);
+		ft_printf_print_lc(c);
 		ft_print_blank(params, 1);
 	}
 	else
 	{
 		ft_print_blank(params, 1);
-		ft_printf_print_lc(n);
+		ft_printf_print_lc(c);
 	}
 	return (ft_max_number(params->width, 1));
 }
@@ -45,19 +47,21 @@ size_t	ft_printf_lc(va_list ap, t_param *params)
 size_t	ft_printf_c(va_list ap, t_param *params)
 {
 	int n;
+	unsigned char c;
 
 	if (*(params->length) != 'l')
 	{
 		n = va_arg(ap, int);
+		c = (unsigned char)n;
 		if (ft_printf_str_contains(params->flags, '-'))
 		{
-			ft_putchar_n_bytes(n, 1);
+			ft_putchar(c);
 			ft_print_blank(params, 1);
 		}
 		else
 		{
 			ft_print_blank(params, 1);
-			ft_putchar_n_bytes(n, 1);
+			ft_putchar(c);
 		}
 		return (ft_max_number(params->width, 1));
 	}

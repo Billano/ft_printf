@@ -12,7 +12,7 @@
 
 #include "../includes/libftprintf.h"
 
-void	ft_putchar_n_bytes(wint_t c, size_t n)
+void	ft_putchar_n_bytes(wchar_t c, size_t n)
 {
 	write(1, &c, n);
 }

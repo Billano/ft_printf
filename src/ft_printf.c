@@ -47,6 +47,8 @@ int	ft_printf(const char *format, ...)
 			// {
 			// 	str_length += ft_printf_d(ap, s);
 			// }
+			else
+				va_arg(ap, void *);
 			format += ft_strlen(s);
 		}
 		str_length += 1;

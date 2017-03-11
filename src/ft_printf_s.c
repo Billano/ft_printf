@@ -104,8 +104,12 @@ size_t	ft_printf_s(va_list ap, t_param *params)
 
 	if (*(params->length) != 'l')
 	{
+		ft_putstr("1WEPA\n");
 		str = va_arg(ap, char *);
+		ft_putstr("2WEPA\n");
+		printf("%s\n", str);
 		length = ft_strlen(str);
+		ft_putstr("3WEPA\n");
 		if (ft_printf_str_contains(params->flags, '-'))
 		{
 			ft_printf_print_s(params, str);

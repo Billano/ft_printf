@@ -15,7 +15,7 @@
 void	ft_printf_print_lsp(t_param *params, wchar_t *str)
 {
 	size_t	i;
-	int		n;
+	wchar_t		n;
 
 	i = 0;
 	while (str[i] && i < params->precision)
@@ -27,7 +27,7 @@ void	ft_printf_print_lsp(t_param *params, wchar_t *str)
 			ft_putchar_n_bytes(str[i], 2);
 		else if (n <= 65535)
 			ft_putchar_n_bytes(str[i], 3);
-		else if (n <= 2097151)
+		else if (n <= 1114111)
 			ft_putchar_n_bytes(str[i], 4);
 		i++;
 	}
@@ -36,7 +36,7 @@ void	ft_printf_print_lsp(t_param *params, wchar_t *str)
 void	ft_printf_print_ls(wchar_t *str)
 {
 	size_t	i;
-	int		n;
+	wchar_t		n;
 
 	i = 0;
 	while (str[i])
@@ -48,7 +48,7 @@ void	ft_printf_print_ls(wchar_t *str)
 			ft_putchar_n_bytes(str[i], 2);
 		else if (n <= 65535)
 			ft_putchar_n_bytes(str[i], 3);
-		else if (n <= 2097151)
+		else if (n <= 1114111)
 			ft_putchar_n_bytes(str[i], 4);
 		i++;
 	}

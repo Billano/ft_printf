@@ -20,7 +20,7 @@ void	ft_printf_print_lc(wchar_t n)
 		ft_putchar_n_bytes(n, 2);
 	else if (n <= 65535)
 		ft_putchar_n_bytes(n, 3);
-	else if (n <= 2097151)
+	else if (n <= 1114111)
 		ft_putchar_n_bytes(n, 4);
 }
 

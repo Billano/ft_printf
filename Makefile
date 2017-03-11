@@ -12,119 +12,242 @@
 
 NAME = libftprintf.a
 
-CFLAG = -c -Wall -Werror -Wextra
+CFLAG = -Wall -Werror -Wextra -c
 
-SRCS  = ./src/ft_printf.c \
-				./src/ft_printf_params_init.c \
-				./src/ft_printf_flags.c \
-				./src/ft_printf_length.c \
-				./src/ft_printf_width.c \
-				./src/ft_printf_precision.c \
-				./src/ft_printf_s.c \
-				./src/ft_max_number.c \
-				./src/ft_print_blank.c \
-				./src/ft_printf_str_trim.c \
-				./src/ft_putchar_n_bytes.c \
-				./src/ft_str_contains.c \
-				./src/ft_wstrlen.c \
-				./src/ft_printf_c.c \
+RM = /bin/rm -rfv
 
-OBJS =	ft_printf.o \
-				ft_printf_params_init.o \
-				ft_printf_flags.o \
-				ft_printf_length.o \
-				ft_printf_width.o \
-				ft_printf_precision.o \
-				ft_printf_s.o \
-				ft_max_number.o \
-				ft_print_blank.o \
-				ft_printf_str_trim.o \
-				ft_putchar_n_bytes.o \
-				ft_str_contains.o \
-				ft_wstrlen.o \
-				ft_printf_c.o \
+L = ./includes/libft/
 
-LIB_OBJS = includes/libft/ft_memset.o \
-			includes/libft/ft_bzero.o \
-			includes/libft/ft_memcpy.o \
-			includes/libft/ft_memccpy.o \
-			includes/libft/ft_memmove.o \
-			includes/libft/ft_memchr.o \
-			includes/libft/ft_memcmp.o \
-			includes/libft/ft_strlen.o \
-			includes/libft/ft_strdup.o \
-			includes/libft/ft_strcpy.o \
-			includes/libft/ft_strncpy.o \
-			includes/libft/ft_strcat.o \
-			includes/libft/ft_strncat.o \
-			includes/libft/ft_strlcat.o \
-			includes/libft/ft_strchr.o \
-			includes/libft/ft_strrchr.o \
-			includes/libft/ft_strstr.o \
-			includes/libft/ft_strnstr.o \
-			includes/libft/ft_strcmp.o \
-			includes/libft/ft_strncmp.o \
-			includes/libft/ft_atoi.o \
-			includes/libft/ft_isalpha.o \
-			includes/libft/ft_isdigit.o \
-			includes/libft/ft_isalnum.o \
-			includes/libft/ft_isascii.o \
-			includes/libft/ft_isprint.o \
-			includes/libft/ft_toupper.o \
-			includes/libft/ft_tolower.o \
-			includes/libft/ft_memalloc.o \
-			includes/libft/ft_memdel.o \
-			includes/libft/ft_strnew.o \
-			includes/libft/ft_strdel.o \
-			includes/libft/ft_strclr.o \
-			includes/libft/ft_striter.o \
-			includes/libft/ft_striteri.o \
-			includes/libft/ft_strmap.o \
-			includes/libft/ft_strmapi.o \
-			includes/libft/ft_strequ.o \
-			includes/libft/ft_strnequ.o \
-			includes/libft/ft_strsub.o \
-			includes/libft/ft_strjoin.o \
-			includes/libft/ft_strtrim.o \
-			includes/libft/ft_strsplit.o \
-			includes/libft/ft_itoa.o \
-			includes/libft/ft_putchar.o \
-			includes/libft/ft_putstr.o \
-			includes/libft/ft_putendl.o \
-			includes/libft/ft_putnbr.o \
-			includes/libft/ft_putchar_fd.o \
-			includes/libft/ft_putstr_fd.o \
-			includes/libft/ft_putendl_fd.o \
-			includes/libft/ft_putnbr_fd.o \
-			includes/libft/ft_lstnew.o	\
-			includes/libft/ft_lstdelone.o \
-			includes/libft/ft_lstdel.o \
-			includes/libft/ft_lstadd.o \
-			includes/libft/ft_lstiter.o \
-			includes/libft/ft_lstmap.o \
+P = ./src/
 
-RM = rm -f
+LF = $(L)btree_apply_infix.c
+LF += $(L)btree_apply_prefix.c
+LF += $(L)btree_apply_suffix.c
+LF += $(L)btree_create_node.c
+LF += $(L)btree_delete.c
+LF += $(L)btree_free_node.c
+LF += $(L)btree_insert_data.c
+LF += $(L)btree_insert.c
+LF += $(L)btree_level_count.c
+LF += $(L)btree_max.c
+LF += $(L)btree_min.c
+LF += $(L)btree_search_tree_item.c
+LF += $(L)ft_atoi.c
+LF += $(L)ft_bzero.c
+LF += $(L)ft_create_elem.c
+LF += $(L)ft_intcmp.c
+LF += $(L)ft_isalnum.c
+LF += $(L)ft_isalpha.c
+LF += $(L)ft_isascii.c
+LF += $(L)ft_isdigit.c
+LF += $(L)ft_isprint.c
+LF += $(L)ft_itoa.c
+LF += $(L)ft_list_at.c
+LF += $(L)ft_list_clear.c
+LF += $(L)ft_list_empty.c
+LF += $(L)ft_list_find.c
+LF += $(L)ft_list_foreach_if.c
+LF += $(L)ft_list_foreach.c
+LF += $(L)ft_list_last.c
+LF += $(L)ft_list_pop_back.c
+LF += $(L)ft_list_pop_front.c
+LF += $(L)ft_list_push_back.c
+LF += $(L)ft_list_push_front.c
+LF += $(L)ft_list_remove_if.c
+LF += $(L)ft_list_reverse.c
+LF += $(L)ft_list_size.c
+LF += $(L)ft_lstadd.c
+LF += $(L)ft_lstdel.c
+LF += $(L)ft_lstdelone.c
+LF += $(L)ft_lstiter.c
+LF += $(L)ft_lstlen.c
+LF += $(L)ft_lstmap.c
+LF += $(L)ft_lstnew.c
+LF += $(L)ft_lstniter.c
+LF += $(L)ft_lstprint_i.c
+LF += $(L)ft_lstprint_s.c
+LF += $(L)ft_memalloc.c
+LF += $(L)ft_memccpy.c
+LF += $(L)ft_memchr.c
+LF += $(L)ft_memcmp.c
+LF += $(L)ft_memcpy.c
+LF += $(L)ft_memdel.c
+LF += $(L)ft_memmove.c
+LF += $(L)ft_memset.c
+LF += $(L)ft_putchar_fd.c
+LF += $(L)ft_putchar.c
+LF += $(L)ft_putendl_fd.c
+LF += $(L)ft_putendl.c
+LF += $(L)ft_putnbr_fd.c
+LF += $(L)ft_putnbr.c
+LF += $(L)ft_putstr_fd.c
+LF += $(L)ft_putstr.c
+LF += $(L)ft_pwr.c
+LF += $(L)ft_str_includes.c
+LF += $(L)ft_strcat.c
+LF += $(L)ft_strchr.c
+LF += $(L)ft_strcmp.c
+LF += $(L)ft_strcpy.c
+LF += $(L)ft_strdel.c
+LF += $(L)ft_strdup.c
+LF += $(L)ft_strequ.c
+LF += $(L)ft_striter.c
+LF += $(L)ft_striteri.c
+LF += $(L)ft_strjoin.c
+LF += $(L)ft_strlcat.c
+LF += $(L)ft_strlen.c
+LF += $(L)ft_strmap.c
+LF += $(L)ft_strmapi.c
+LF += $(L)ft_strncat.c
+LF += $(L)ft_strncmp.c
+LF += $(L)ft_strncpy.c
+LF += $(L)ft_strnequ.c
+LF += $(L)ft_strnew.c
+LF += $(L)ft_strnstr.c
+LF += $(L)ft_strrchr.c
+LF += $(L)ft_strsplit.c
+LF += $(L)ft_strstr.c
+LF += $(L)ft_strsub.c
+LF += $(L)ft_strtrim.c
+LF += $(L)ft_tolower.c
+LF += $(L)ft_toupper.c
+LF += $(L)ft_max_number.c
 
-LIBS = ./includes/libft/libft.a
+PF = $(P)ft_print_blank.c
+PF += $(P)ft_printf_c.c
+PF += $(P)ft_printf_flags.c
+PF += $(P)ft_printf_length.c
+PF += $(P)ft_printf_params_init.c
+PF += $(P)ft_printf_precision.c
+PF += $(P)ft_printf_s.c
+PF += $(P)ft_printf_str_trim.c
+PF += $(P)ft_printf_width.c
+PF += $(P)ft_printf.c
+PF += $(P)ft_putchar_n_bytes.c
+PF += $(P)ft_str_contains.c
+PF += $(P)ft_wstrlen.c
 
-all: fclean $(NAME)
+OF = btree_apply_infix.o
+OF += btree_apply_prefix.o
+OF += btree_apply_suffix.o
+OF += btree_create_node.o
+OF += btree_delete.o
+OF += btree_free_node.o
+OF += btree_insert_data.o
+OF += btree_insert.o
+OF += btree_level_count.o
+OF += btree_max.o
+OF += btree_min.o
+OF += btree_search_tree_item.o
+OF += ft_atoi.o
+OF += ft_bzero.o
+OF += ft_create_elem.o
+OF += ft_intcmp.o
+OF += ft_isalnum.o
+OF += ft_isalpha.o
+OF += ft_isascii.o
+OF += ft_isdigit.o
+OF += ft_isprint.o
+OF += ft_itoa.o
+OF += ft_list_at.o
+OF += ft_list_clear.o
+OF += ft_list_empty.o
+OF += ft_list_find.o
+OF += ft_list_foreach_if.o
+OF += ft_list_foreach.o
+OF += ft_list_last.o
+OF += ft_list_pop_back.o
+OF += ft_list_pop_front.o
+OF += ft_list_push_back.o
+OF += ft_list_push_front.o
+OF += ft_list_remove_if.o
+OF += ft_list_reverse.o
+OF += ft_list_size.o
+OF += ft_lstadd.o
+OF += ft_lstdel.o
+OF += ft_lstdelone.o
+OF += ft_lstiter.o
+OF += ft_lstlen.o
+OF += ft_lstmap.o
+OF += ft_lstnew.o
+OF += ft_lstniter.o
+OF += ft_lstprint_i.o
+OF += ft_lstprint_s.o
+OF += ft_memalloc.o
+OF += ft_memccpy.o
+OF += ft_memchr.o
+OF += ft_memcmp.o
+OF += ft_memcpy.o
+OF += ft_memdel.o
+OF += ft_memmove.o
+OF += ft_memset.o
+OF += ft_putchar_fd.o
+OF += ft_putchar.o
+OF += ft_putendl_fd.o
+OF += ft_putendl.o
+OF += ft_putnbr_fd.o
+OF += ft_putnbr.o
+OF += ft_putstr_fd.o
+OF += ft_putstr.o
+OF += ft_pwr.o
+OF += ft_str_includes.o
+OF += ft_strcat.o
+OF += ft_strchr.o
+OF += ft_strcmp.o
+OF += ft_strcpy.o
+OF += ft_strdel.o
+OF += ft_strdup.o
+OF += ft_strequ.o
+OF += ft_striter.o
+OF += ft_striteri.o
+OF += ft_strjoin.o
+OF += ft_strlcat.o
+OF += ft_strlen.o
+OF += ft_strmap.o
+OF += ft_strmapi.o
+OF += ft_strncat.o
+OF += ft_strncmp.o
+OF += ft_strncpy.o
+OF += ft_strnequ.o
+OF += ft_strnew.o
+OF += ft_strnstr.o
+OF += ft_strrchr.o
+OF += ft_strsplit.o
+OF += ft_strstr.o
+OF += ft_strsub.o
+OF += ft_strtrim.o
+OF += ft_tolower.o
+OF += ft_toupper.o
 
-$(OBJS):
-	gcc $(CFLAG) $(SRCS)
+OF += ft_max_number.o
+OF += ft_print_blank.o
+OF += ft_printf_c.o
+OF += ft_printf_flags.o
+OF += ft_printf_length.o
+OF += ft_printf_params_init.o
+OF += ft_printf_precision.o
+OF += ft_printf_s.o
+OF += ft_printf_str_trim.o
+OF += ft_printf_width.o
+OF += ft_printf.o
+OF += ft_putchar_n_bytes.o
+OF += ft_str_contains.o
+OF += ft_wstrlen.o
 
-$(LIB_OBJS):
-	$(MAKE) -C ./includes/libft
-$(NAME): $(OBJS) $(LIB_OBJS)
-	ar rcs $(NAME) $(LIB_OBJS) $(OBJS)
-	ranlib $(NAME)
+all: $(NAME)
+
+$(NAME):
+				@echo compiling...
+				@gcc $(CFLAG) $(LF) $(PF)
+				@ar rc $(NAME) $(OF)
+				@ranlib $(NAME)
+				@echo $(NAME) ready to be used
 
 clean:
-	rm -f $(OBJS)
-	$(MAKE) -C ./includes/libft/ clean
+				@$(RM) $(OF) | wc -l | tr '\n' ' ' && echo ft_*.o files deleted
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) -C ./includes/libft/ fclean
+				@$(RM) $(NAME) | wc -l | tr '\n' ' ' && echo $(NAME) deleted
 
 re: fclean all
 

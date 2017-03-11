@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_push_back.c                                 :+:      :+:    :+:   */
+/*   btree_min.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/29 19:31:48 by eurodrig          #+#    #+#             */
-/*   Updated: 2016/12/29 19:31:51 by eurodrig         ###   ########.fr       */
+/*   Created: 2017/03/10 17:36:16 by eurodrig          #+#    #+#             */
+/*   Updated: 2017/03/10 17:36:17 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lst_push_back(t_lst **begin_lst, char data)
+t_btree	*btree_min(t_btree *root)
 {
-	t_lst	*lst;
-
-	if (*begin_lst == NULL)
-	{
-		*begin_lst = ft_lst_new(data);
-		return ;
-	}
-	lst = *begin_lst;
-	while (lst->next)
-		lst = lst->next;
-	lst->next = ft_lst_new(data);
+	while (root->left)
+		root = root->left;
+	return (root);
 }

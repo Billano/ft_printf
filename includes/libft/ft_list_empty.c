@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max_number.c                                    :+:      :+:    :+:   */
+/*   ft_list_empty.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/09 05:21:11 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/03/09 05:21:14 by eurodrig         ###   ########.fr       */
+/*   Created: 2017/03/10 17:19:07 by eurodrig          #+#    #+#             */
+/*   Updated: 2017/03/10 17:19:09 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "libft.h"
 
-size_t	ft_max_number(size_t a, size_t b)
+int	ft_list_empty(t_list_a **begin_list)
 {
-	return (a > b ? a : b);
+	if (*begin_list == NULL)
+		return (1);
+	else
+		return (0);
 }

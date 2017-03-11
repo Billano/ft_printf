@@ -38,7 +38,7 @@ static size_t	ft_wc(char const *s, char c)
 	j = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] != c != '\0')
+		if (s[i] != c && s[i] != '\0')
 			j++;
 		while (s[i] != c && s[i + 1] != '\0')
 			i++;

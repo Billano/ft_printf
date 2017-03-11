@@ -6,7 +6,7 @@
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 12:47:42 by eurodrig          #+#    #+#             */
-/*   Updated: 2016/12/07 21:18:01 by eurodrig         ###   ########.fr       */
+/*   Updated: 2017/03/10 21:04:44 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,24 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_list_a
+{
+	void			*data;
+	struct s_list_a	*next;
+}					t_list_a;
+
 typedef struct		s_point
 {
 	size_t			i;
 	size_t			j;
 }					t_point;
 
-typedef struct		s_lst
+typedef struct		s_btree
 {
-	struct s_lst	*next;
-	char			data;
-}					t_lst;
+	struct s_btree	*left;
+	struct s_btree	*right;
+	void			*item;
+}					t_btree;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
@@ -105,11 +112,42 @@ size_t				ft_lstlen(t_list *lst);
 int					ft_intcmp(int a, int b);
 void				ft_lstniter(t_list *lst, void (*f)(t_list *elem), \
 		size_t n);
-t_lst				*ft_lst_new(char data);
-void				ft_lst_push_back(t_lst **begin_lst, char data);
-size_t				ft_lst_len(t_lst *lst);
-int					ft_str_includes(char *str, char c);
-int					ft_lst_includes(t_lst *lst, char c);
-char				*ft_lst_to_s(t_lst *lst);
+t_list_a			*ft_create_elem(void *data);
+void				ft_list_push_back(t_list_a **begin_list, void *data);
+void				ft_list_push_front(t_list_a **begin_list, void *data);
+int					ft_list_size(t_list_a *begin_list);
+t_list_a			*ft_list_last(t_list_a *begin_list);
+void				ft_list_clear(t_list_a **begin_list);
+t_list_a			*ft_list_at(t_list_a *begin_list, unsigned int nbr);
+void				ft_list_reverse(t_list_a **begin_list);
+void				ft_list_foreach(t_list_a *begin_list, void (*f)(void *));
+void				ft_list_foreach_if(t_list_a *begin_list, void (*f)(void *),\
+	void *data_ref, int (*cmp)());
+t_list_a			*ft_list_find(t_list_a *begin_list, void *data_ref,\
+		int (*cmp)());
+void				ft_list_remove_if(t_list_a **begin_list, void *data_ref,\
+		int (*cmp)());
+void				ft_list_merge(t_list_a **begin_list1,\
+		t_list_a *begin_list2);
+void				ft_list_sort(t_list_a **begin_list, int (*cmp)());
+t_list_a			*ft_list_pop_front(t_list_a **begin_list);
+t_list_a			*ft_list_pop_back(t_list_a **begin_list);
+int					ft_list_empty(t_list_a **begin_list);
+t_btree				*btree_create_node(void *item);
+void				btree_free_node(t_btree **root);
+t_btree				*btree_insert(t_btree *root, void *item);
+void				btree_apply_prefix(t_btree *root, void (*applyf)(void *));
+void				btree_apply_infix(t_btree *root, void (*applyf)(void *));
+void				btree_apply_suffix(t_btree *root, void (*applyf)(void *));
+void				btree_insert_data(t_btree **root, void *item,\
+	int (*cmpf)(const char *, const char *));
+void				*btree_search_item(t_btree *root, void *data_ref,\
+	int (*cmpf)(const char *, const char *));
+int					btree_level_count(t_btree *root);
+t_btree				*btree_min(t_btree *root);
+t_btree				*btree_max(t_btree *root);
+t_btree				*btree_delete(t_btree *root, void *data_ref,\
+	int (*cmpf)(const char *, const char *));
+size_t				ft_max_number(size_t a, size_t b);
 
 #endif

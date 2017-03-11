@@ -61,7 +61,7 @@ size_t	ft_printf_ls(va_list ap, t_param *params)
 
 	str = va_arg(ap, wchar_t *);
 	length = ft_wstrlen(str);
-	if (ft_str_contains(params->flags, '-'))
+	if (ft_printf_str_contains(params->flags, '-'))
 	{
 		if (params->precision)
 			ft_printf_print_lsp(params, str);
@@ -106,7 +106,7 @@ size_t	ft_printf_s(va_list ap, t_param *params)
 	{
 		str = va_arg(ap, char *);
 		length = ft_strlen(str);
-		if (ft_str_contains(params->flags, '-'))
+		if (ft_printf_str_contains(params->flags, '-'))
 		{
 			ft_printf_print_s(params, str);
 			ft_print_blank(params, length);

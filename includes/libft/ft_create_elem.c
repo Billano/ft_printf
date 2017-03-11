@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_str_contains.c                           :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/09 05:34:00 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/03/09 05:34:02 by eurodrig         ###   ########.fr       */
+/*   Created: 2017/03/10 17:12:05 by eurodrig          #+#    #+#             */
+/*   Updated: 2017/03/10 17:12:07 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "libft.h"
 
-int	ft_printf_str_contains(char *str, char c)
+t_list_a	*ft_create_elem(void *data)
 {
-	while (*str)
-	{
-		if (*str == c)
-			return (1);
-		if (*str >= '1' && *str <= '9')
-			return (0);
-		str++;
-	}
-	return (0);
+	t_list_a *lst;
+
+	lst = NULL;
+	if (!(lst = (t_list_a *)malloc(sizeof(t_list_a))))
+		return (NULL);
+	lst->data = data;
+	lst->next = NULL;
+	return (lst);
 }

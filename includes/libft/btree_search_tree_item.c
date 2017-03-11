@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_str_contains.c                           :+:      :+:    :+:   */
+/*   btree_search_tree_item.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/09 05:34:00 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/03/09 05:34:02 by eurodrig         ###   ########.fr       */
+/*   Created: 2017/03/10 17:34:52 by eurodrig          #+#    #+#             */
+/*   Updated: 2017/03/10 17:34:53 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "libft.h"
 
-int	ft_printf_str_contains(char *str, char c)
+void	*btree_search_item(t_btree *root, void *data_ref, \
+	int (*cmpf)(const char *, const char *))
 {
-	while (*str)
-	{
-		if (*str == c)
-			return (1);
-		if (*str >= '1' && *str <= '9')
-			return (0);
-		str++;
-	}
-	return (0);
+	if (!root)
+		return (NULL);
+	else if ((*cmpf)(root->item, data_ref) > 0)
+		return (btree_search_item(root->left, data_ref, cmpf));
+	else if ((*cmpf)(root->item, data_ref) == 0)
+		return (root);
+	else
+		return (btree_search_item(root->right, data_ref, cmpf));
 }

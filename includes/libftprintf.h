@@ -60,8 +60,7 @@ size_t	ft_printf_c(va_list ap, t_param *params);
 void	ft_print_blank(t_param *params, size_t length);
 
 // Extras/Utilities gcc -Wall -Werror -Wextra -c $(SRCS) -I /includes/
-int	ft_str_contains(char *str, char c);
-size_t ft_max_number(size_t a, size_t b);
+int	ft_printf_str_contains(char *str, char c);
 void	ft_putchar_n_bytes(char c, size_t n);
 size_t	ft_wstrlen(wchar_t *str);
 

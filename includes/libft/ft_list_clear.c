@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_str_contains.c                           :+:      :+:    :+:   */
+/*   ft_list_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/09 05:34:00 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/03/09 05:34:02 by eurodrig         ###   ########.fr       */
+/*   Created: 2017/03/10 17:18:20 by eurodrig          #+#    #+#             */
+/*   Updated: 2017/03/10 17:18:23 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "libft.h"
 
-int	ft_printf_str_contains(char *str, char c)
+void	ft_list_clear(t_list_a **begin_list)
 {
-	while (*str)
+	t_list_a *head;
+
+	while (*begin_list)
 	{
-		if (*str == c)
-			return (1);
-		if (*str >= '1' && *str <= '9')
-			return (0);
-		str++;
+		head = *begin_list;
+		*begin_list = (*begin_list)->next;
+		free(head);
+		head = 0;
 	}
-	return (0);
 }

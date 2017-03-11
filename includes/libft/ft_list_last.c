@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_len.c                                       :+:      :+:    :+:   */
+/*   ft_list_last.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/29 19:39:00 by eurodrig          #+#    #+#             */
-/*   Updated: 2016/12/29 19:39:02 by eurodrig         ###   ########.fr       */
+/*   Created: 2017/03/10 17:21:57 by eurodrig          #+#    #+#             */
+/*   Updated: 2017/03/10 17:21:59 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_lst_len(t_lst *lst)
+t_list_a	*ft_list_last(t_list_a *begin_list)
 {
-	size_t	i;
-	t_lst	*tmp;
+	t_list_a *head;
 
-	i = 0;
-	tmp = lst;
-	while (tmp)
-	{
-		i++;
-		tmp = tmp->next;
-	}
-	return (i);
+	head = begin_list;
+	while (head->next)
+		head = head->next;
+	return (head);
 }

@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_includes.c                                  :+:      :+:    :+:   */
+/*   ft_max_number.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/29 19:44:13 by eurodrig          #+#    #+#             */
-/*   Updated: 2016/12/29 19:44:15 by eurodrig         ###   ########.fr       */
+/*   Created: 2017/03/09 05:21:11 by eurodrig          #+#    #+#             */
+/*   Updated: 2017/03/09 05:21:14 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lst_includes(t_lst *lst, char c)
+size_t	ft_max_number(size_t a, size_t b)
 {
-	t_lst		*tmp;
-
-	tmp = lst;
-	while (tmp)
-	{
-		if (tmp->data == c)
-			return (1);
-		tmp = tmp->next;
-	}
-	return (0);
+	return (a > b ? a : b);
 }

@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_new.c                                       :+:      :+:    :+:   */
+/*   btree_free_node.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/29 19:29:37 by eurodrig          #+#    #+#             */
-/*   Updated: 2016/12/29 19:29:39 by eurodrig         ###   ########.fr       */
+/*   Created: 2017/03/10 19:11:27 by eurodrig          #+#    #+#             */
+/*   Updated: 2017/03/10 19:11:29 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_lst	*ft_lst_new(char data)
+void	btree_free_node(t_btree **root)
 {
-	t_lst	*new;
-
-	if (!(new = (t_lst *)malloc(sizeof(t_lst))))
-		return (NULL);
-	new->data = data;
-	new->next = NULL;
-	return (new);
+	free(*root);
+	*root = NULL;
 }

@@ -29,7 +29,7 @@ size_t	ft_printf_lc(va_list ap, t_param *params)
 	wint_t	c;
 
 	c = va_arg(ap, wint_t);
-	if (ft_str_contains(params->flags, '-'))
+	if (ft_printf_str_contains(params->flags, '-'))
 	{
 		ft_printf_print_lc(c);
 		ft_print_blank(params, 1);
@@ -49,7 +49,7 @@ size_t	ft_printf_c(va_list ap, t_param *params)
 	if (*(params->length) != 'l')
 	{
 		c = va_arg(ap, int);
-		if (ft_str_contains(params->flags, '-'))
+		if (ft_printf_str_contains(params->flags, '-'))
 		{
 			ft_putchar(c);
 			ft_print_blank(params, 1);

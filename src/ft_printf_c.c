@@ -15,7 +15,7 @@
 void	ft_printf_print_lc(wint_t n)
 {
 	if (n <= 127)
-		ft_putchar(n);
+		ft_putchar_n_bytes(n, 1);
 	else if (n <= 2047)
 		ft_putchar_n_bytes(n, 2);
 	else if (n <= 65535)

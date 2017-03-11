@@ -41,6 +41,8 @@ int	ft_printf(const char *format, ...)
 				str_length += ft_printf_ls(ap, params);
 			else if (*s && s[trimmed_length - 1] == 'c')
 				str_length += ft_printf_c(ap, params);
+			else if (*s && s[trimmed_length - 1] == 'C')
+				str_length += ft_printf_lc(ap, params);
 			// else if (*s && (s[trimmed_length - 1] == 'd' || s[trimmed_length - 1] == 'i'))
 			// {
 			// 	str_length += ft_printf_d(ap, s);

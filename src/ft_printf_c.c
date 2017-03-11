@@ -26,38 +26,38 @@ void	ft_printf_print_lc(wint_t n)
 
 size_t	ft_printf_lc(va_list ap, t_param *params)
 {
-	wint_t	c;
+	wint_t	n;
 
-	c = va_arg(ap, wint_t);
+	n = va_arg(ap, wint_t);
 	if (ft_printf_str_contains(params->flags, '-'))
 	{
-		ft_printf_print_lc(c);
+		ft_printf_print_lc(n);
 		ft_print_blank(params, 1);
 	}
 	else
 	{
 		ft_print_blank(params, 1);
-		ft_printf_print_lc(c);
+		ft_printf_print_lc(n);
 	}
 	return (ft_max_number(params->width, 1));
 }
 
 size_t	ft_printf_c(va_list ap, t_param *params)
 {
-	int c;
+	int n;
 
 	if (*(params->length) != 'l')
 	{
-		c = va_arg(ap, int);
+		n = va_arg(ap, int);
 		if (ft_printf_str_contains(params->flags, '-'))
 		{
-			ft_putchar_n_bytes(c, 1);
+			ft_putchar_n_bytes(n, 1);
 			ft_print_blank(params, 1);
 		}
 		else
 		{
 			ft_print_blank(params, 1);
-			ft_putchar_n_bytes(c, 1);
+			ft_putchar_n_bytes(n, 1);
 		}
 		return (ft_max_number(params->width, 1));
 	}

@@ -51,13 +51,13 @@ size_t	ft_printf_c(va_list ap, t_param *params)
 		c = va_arg(ap, int);
 		if (ft_printf_str_contains(params->flags, '-'))
 		{
-			ft_putchar(c);
+			ft_putchar_n_bytes(c, 1);
 			ft_print_blank(params, 1);
 		}
 		else
 		{
 			ft_print_blank(params, 1);
-			ft_putchar(c);
+			ft_putchar_n_bytes(c, 1);
 		}
 		return (ft_max_number(params->width, 1));
 	}

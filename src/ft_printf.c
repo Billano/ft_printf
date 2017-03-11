@@ -33,7 +33,7 @@ int	ft_printf(const char *format, ...)
 			if (*s && s[0] == '%')
 			{
 				ft_putstr(s);
-				str_length += ft_strlen(s);
+				str_length += trimmed_length;
 			}
 			else if (*s && s[trimmed_length - 1] == 's')
 				str_length += ft_printf_s(ap, params);
@@ -43,13 +43,13 @@ int	ft_printf(const char *format, ...)
 				str_length += ft_printf_c(ap, params);
 			else if (*s && s[trimmed_length - 1] == 'C')
 				str_length += ft_printf_lc(ap, params);
-			// else if (*s && (s[trimmed_length - 1] == 'd' || s[trimmed_length - 1] == 'i'))
-			// {
-			// 	str_length += ft_printf_d(ap, s);
-			// }
 			else
 				va_arg(ap, void *);
-			format += ft_strlen(s);
+				// else if (*s && (s[trimmed_length - 1] == 'd' || s[trimmed_length - 1] == 'i'))
+				// {
+				// 	str_length += ft_printf_d(ap, s);
+				// }
+			format += trimmed_length;
 		}
 		str_length += 1;
 		if (!*format)

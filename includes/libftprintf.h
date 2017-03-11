@@ -24,6 +24,8 @@
 # include <stdio.h>
 # include <wchar.h>
 
+#define ABS(v) ((v) < 0 ? -(v) : (v))
+
 typedef struct		s_param
 {
   char    *flags;
@@ -56,6 +58,8 @@ void	ft_printf_print_lc(wchar_t n);
 size_t	ft_printf_lc(va_list ap, t_param *params);
 size_t	ft_printf_c(va_list ap, t_param *params);
 
+// d, D, i, I
+size_t ft_printf_d(va_list ap, t_param *params);
 //flags
 void	ft_print_blank(t_param *params, size_t length);
 
@@ -63,5 +67,6 @@ void	ft_print_blank(t_param *params, size_t length);
 int	ft_printf_str_contains(char *str, char c);
 void	ft_putchar_n_bytes(wchar_t c, size_t n);
 size_t	ft_wstrlen(wchar_t *str);
+char	*ft_itoa_base(long long value, long long base);
 
 #endif

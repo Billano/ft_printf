@@ -6,7 +6,7 @@
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/02 20:44:22 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/01/02 20:44:24 by eurodrig         ###   ########.fr       */
+/*   Updated: 2017/03/13 18:11:11 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_printf_print_lsp(t_param *params, wchar_t *str)
 {
 	size_t	i;
-	wchar_t		n;
+	wchar_t	n;
 
 	i = 0;
 	while (str[i] && i < params->precision)
@@ -36,7 +36,7 @@ void	ft_printf_print_lsp(t_param *params, wchar_t *str)
 void	ft_printf_print_ls(wchar_t *str)
 {
 	size_t	i;
-	wchar_t		n;
+	wchar_t	n;
 
 	i = 0;
 	while (str[i])
@@ -61,7 +61,7 @@ size_t	ft_printf_ls(va_list ap, t_param *params)
 
 	str = va_arg(ap, wchar_t *);
 	length = ft_wstrlen(str);
-	if (params->precision < length)
+	if (params->precision < length && params->precision != 0)
 		length = params->precision;
 	if (ft_printf_str_contains(params->flags, '-'))
 	{
@@ -69,11 +69,11 @@ size_t	ft_printf_ls(va_list ap, t_param *params)
 			ft_printf_print_lsp(params, str);
 		else
 			ft_printf_print_ls(str);
-		ft_print_blank(params, length);
+		ft_print_blank_s(params, length);
 	}
 	else
 	{
-		ft_print_blank(params, length);
+		ft_print_blank_s(params, length);
 		if (params->precision)
 			ft_printf_print_lsp(params, str);
 		else
@@ -108,16 +108,16 @@ size_t	ft_printf_s(va_list ap, t_param *params)
 	{
 		str = va_arg(ap, char *);
 		length = ft_strlen(str);
-		if (params->precision < length)
+		if (params->precision < length && params->precision != 0)
 			length = params->precision;
 		if (ft_printf_str_contains(params->flags, '-'))
 		{
 			ft_printf_print_s(params, str);
-			ft_print_blank(params, length);
+			ft_print_blank_s(params, length);
 		}
 		else
 		{
-			ft_print_blank(params, length);
+			ft_print_blank_s(params, length);
 			ft_printf_print_s(params, str);
 		}
 		return (ft_max_number(params->width, length));

@@ -128,6 +128,11 @@ PF += $(P)ft_str_contains.c
 PF += $(P)ft_wstrlen.c
 PF += $(P)ft_itoa_base.c
 PF += $(P)ft_printf_d.c
+PF += $(P)ft_print_sign.c
+PF += $(P)ft_print_zero.c
+PF += $(P)ft_printf_d_helper.c
+PF += $(P)ft_printf_u.c
+PF += $(P)ft_printf_u_helper.c
 
 OF = btree_apply_infix.o
 OF += btree_apply_prefix.o
@@ -237,6 +242,11 @@ OF += ft_str_contains.o
 OF += ft_wstrlen.o
 OF += ft_itoa_base.o
 OF += ft_printf_d.o
+OF += ft_print_sign.o
+OF += ft_print_zero.o
+OF += ft_printf_d_helper.o
+OF += ft_printf_u.o
+OF += ft_printf_u_helper.o
 
 all: $(NAME)
 

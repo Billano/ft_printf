@@ -32,6 +32,7 @@ typedef struct		s_param
   size_t  width;
   size_t  precision;
   char    *length;
+	int 		sign;
 }					t_param;
 
 int ft_printf(const char *format, ...);
@@ -60,13 +61,35 @@ size_t	ft_printf_c(va_list ap, t_param *params);
 
 // d, D, i, I
 size_t ft_printf_d(va_list ap, t_param *params);
+size_t ft_printf_d_i(va_list ap, t_param *params);
+size_t ft_printf_d_h(va_list ap, t_param *params);
+size_t ft_printf_d_hh(va_list ap, t_param *params);
+size_t ft_printf_d_l(va_list ap, t_param *params);
+size_t ft_printf_d_ll(va_list ap, t_param *params);
+size_t ft_printf_d_j(va_list ap, t_param *params);
+size_t ft_printf_d_z(va_list ap, t_param *params);
+// u
+size_t ft_printf_u(va_list ap, t_param *params);
+size_t ft_printf_u_i(va_list ap, t_param *params);
+size_t ft_printf_u_h(va_list ap, t_param *params);
+size_t ft_printf_u_hh(va_list ap, t_param *params);
+size_t ft_printf_u_l(va_list ap, t_param *params);
+size_t ft_printf_u_ll(va_list ap, t_param *params);
+size_t ft_printf_u_j(va_list ap, t_param *params);
+size_t ft_printf_u_z(va_list ap, t_param *params);
+
 //flags
-void	ft_print_blank(t_param *params, size_t length);
+void	ft_print_blank_s(t_param *params, size_t length);
+void	ft_print_blank_d(t_param *params, size_t length);
+void ft_print_sign(t_param *params, size_t length);
+void ft_print_zero(t_param *params, size_t length);
 
 // Extras/Utilities gcc -Wall -Werror -Wextra -c $(SRCS) -I /includes/
 int	ft_printf_str_contains(char *str, char c);
 void	ft_putchar_n_bytes(wchar_t c, size_t n);
 size_t	ft_wstrlen(wchar_t *str);
 char	*ft_itoa_base(long long value, long long base);
+char	*ft_uitoa_base(unsigned long long int value,\
+		unsigned long long int base);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 18:53:20 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/03/09 18:53:23 by eurodrig         ###   ########.fr       */
+/*   Updated: 2017/03/13 18:24:50 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ void	ft_printf_print_lc(wchar_t n)
 
 size_t	ft_printf_lc(va_list ap, t_param *params)
 {
-	wint_t n;
-	wchar_t	c;
+	wint_t			n;
+	wchar_t			c;
 
 	n = va_arg(ap, wchar_t);
 	c = (wchar_t)n;
 	if (ft_printf_str_contains(params->flags, '-'))
 	{
 		ft_printf_print_lc(c);
-		ft_print_blank(params, 1);
+		ft_print_blank_s(params, 1);
 	}
 	else
 	{
-		ft_print_blank(params, 1);
+		ft_print_blank_s(params, 1);
 		ft_printf_print_lc(c);
 	}
 	return (ft_max_number(params->width, 1));
@@ -46,8 +46,8 @@ size_t	ft_printf_lc(va_list ap, t_param *params)
 
 size_t	ft_printf_c(va_list ap, t_param *params)
 {
-	int n;
-	unsigned char c;
+	int				n;
+	unsigned char	c;
 
 	if (*(params->length) != 'l')
 	{
@@ -56,11 +56,11 @@ size_t	ft_printf_c(va_list ap, t_param *params)
 		if (ft_printf_str_contains(params->flags, '-'))
 		{
 			ft_putchar(c);
-			ft_print_blank(params, 1);
+			ft_print_blank_s(params, 1);
 		}
 		else
 		{
-			ft_print_blank(params, 1);
+			ft_print_blank_s(params, 1);
 			ft_putchar(c);
 		}
 		return (ft_max_number(params->width, 1));

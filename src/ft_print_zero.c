@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_params_init.c                            :+:      :+:    :+:   */
+/*   ft_print_zero.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/09 02:45:19 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/03/09 02:45:25 by eurodrig         ###   ########.fr       */
+/*   Created: 2017/03/13 15:22:47 by eurodrig          #+#    #+#             */
+/*   Updated: 2017/03/13 18:23:10 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
 
-t_param	*ft_printf_params_init(char *str)
+void	ft_print_zero(t_param *params, size_t length)
 {
-	t_param *params;
+	size_t i;
 
-	if (!(params = (t_param *)malloc(sizeof(t_param))))
-		return (NULL);
-	params->flags = ft_printf_flags(str);
-	params->width = ft_printf_width(str);
-	params->precision = ft_printf_precision(str);
-	params->length = ft_printf_length(str);
-	params->sign = 0;
-	return (params);
+	i = 0;
+	if (params->precision > length)
+	{
+		while (i < (params->precision - length))
+		{
+			ft_putchar('0');
+			i++;
+		}
+	}
 }

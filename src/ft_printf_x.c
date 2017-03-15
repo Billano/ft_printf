@@ -68,7 +68,7 @@ size_t	ft_printf_x_i(va_list ap, t_param *params)
 
 	length = 0;
 	n = va_arg(ap, unsigned int);
-	if (n > (32766 * 2))
+	if (sizeof(n) > 4)
 		params->specifier = 'P';
 	nbr = ft_uitoa_base_l(n, 16);
 	length = ft_strlen(nbr);

@@ -22,8 +22,8 @@ void	ft_print_sign(t_param *params)
 			ft_putstr("0x");
 		else if (params->specifier == 'X')
 			ft_putstr("0X");
-		if (ft_printf_str_contains(params->flags, 'l'))
-			ft_putstr("7fff");
+		if (params->specifier == 'p')
+			ft_putstr("0x7fff");
 	}
 	else if (params->sign == 0 && ft_printf_str_contains(params->flags, '+'))
 		ft_putchar('+');

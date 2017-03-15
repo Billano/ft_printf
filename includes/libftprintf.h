@@ -88,8 +88,7 @@ void ft_print_zero(t_param *params, size_t length);
 int	ft_printf_str_contains(char *str, char c);
 void	ft_putchar_n_bytes(wchar_t c, size_t n);
 size_t	ft_wstrlen(wchar_t *str);
-char	*ft_itoa_base(long long value, long long base);
-char	*ft_uitoa_base(unsigned long long int value,\
-		unsigned long long int base);
+char	*ft_itoa_base(long long int value, int base);
+char	*ft_uitoa_base(unsigned long long int value, int base);
 
 #endif

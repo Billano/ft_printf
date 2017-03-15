@@ -24,8 +24,6 @@
 # include <stdio.h>
 # include <wchar.h>
 
-#define ABS(v) ((v) < 0 ? -(v) : (v))
-
 typedef struct		s_param
 {
   char    *flags;

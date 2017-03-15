@@ -30,7 +30,7 @@ int	ft_printf(const char *format, ...)
 			s = ft_printf_str_trim(format);
 			params = ft_printf_params_init(s);
 			trimmed_length = ft_strlen(s);
-			if (*s && s[0] == '%')
+			if (*s && s[trimmed_length - 1] == '%')
 			{
 				ft_putstr(s);
 				str_length += trimmed_length;

@@ -14,7 +14,7 @@
 
 void	ft_print_d(t_param *params, size_t length, char *nbr)
 {
-	if (ft_printf_str_contains(params->flags, '-') == 1)
+	if (ft_printf_str_contains(params->flags, '-'))
 	{
 		ft_print_sign(params);
 		ft_print_zero(params, length);

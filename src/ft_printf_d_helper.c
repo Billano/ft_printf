@@ -31,7 +31,8 @@ void	ft_print_d(t_param *params, size_t length, char *nbr)
 		else
 		{
 			ft_print_blank_d(params, length);
-			ft_print_sign(params);
+			if (!ft_printf_str_contains(params->flags, '#'))
+				ft_print_sign(params);
 		}
 		ft_print_zero(params, length);
 		ft_putstr(nbr);

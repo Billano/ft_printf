@@ -22,6 +22,8 @@ size_t	ft_printf_o_z(va_list ap, t_param *params)
 	n = va_arg(ap, size_t);
 	nbr = ft_uitoa_base(n, 8);
 	length = ft_strlen(nbr);
+	if (ft_printf_str_contains(params->flags, '#'))
+		length += 1;
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\
 		ft_max_number(params->width, params->precision));
@@ -38,6 +40,8 @@ size_t	ft_printf_o_j(va_list ap, t_param *params)
 	n = va_arg(ap, uintmax_t);
 	nbr = ft_uitoa_base(n, 8);
 	length = ft_strlen(nbr);
+	if (ft_printf_str_contains(params->flags, '#'))
+		length += 1;
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\
 		ft_max_number(params->width, params->precision));
@@ -54,6 +58,8 @@ size_t	ft_printf_o_ll(va_list ap, t_param *params)
 	n = va_arg(ap, unsigned long long int);
 	nbr = ft_uitoa_base(n, 8);
 	length = ft_strlen(nbr);
+	if (ft_printf_str_contains(params->flags, '#'))
+		length += 1;
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\
 		ft_max_number(params->width, params->precision));

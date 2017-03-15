@@ -24,10 +24,15 @@ void	ft_print_d(t_param *params, size_t length, char *nbr)
 	else
 	{
 		if (ft_printf_str_contains(params->flags, '0'))
+		{
+			ft_print_sign(params);
 			ft_print_blank_d_zero(params, length);
+		}
 		else
+		{
 			ft_print_blank_d(params, length);
-		ft_print_sign(params);
+			ft_print_sign(params);
+		}
 		ft_print_zero(params, length);
 		ft_putstr(nbr);
 	}

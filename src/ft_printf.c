@@ -64,6 +64,7 @@ int	ft_printf(const char *format, ...)
 			{
 				params->flags = ft_strcat(params->flags, "#");
 				str_length += ft_printf_lx(ap, params);
+			}
 			else
 				va_arg(ap, void *);
 

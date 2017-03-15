@@ -29,7 +29,7 @@ size_t	ft_printf_lc(va_list ap, t_param *params)
 	wint_t			n;
 	wchar_t			c;
 
-	n = va_arg(ap, wchar_t);
+	n = va_arg(ap, wint_t);
 	c = (wchar_t)n;
 	if (ft_printf_str_contains(params->flags, '-'))
 	{

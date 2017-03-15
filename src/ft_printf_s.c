@@ -60,6 +60,11 @@ size_t	ft_printf_ls(va_list ap, t_param *params)
 	size_t	length;
 
 	str = va_arg(ap, wchar_t *);
+	if (!str)
+	{
+		ft_putstr("(null)");
+		return (0);
+	}
 	length = ft_wstrlen(str);
 	if (params->precision < length && params->precision != 0)
 		length = params->precision;
@@ -107,6 +112,11 @@ size_t	ft_printf_s(va_list ap, t_param *params)
 	if (*(params->length) != 'l')
 	{
 		str = va_arg(ap, char *);
+		if (!str)
+		{
+			ft_putstr("(null)");
+			return (0);
+		}
 		length = ft_strlen(str);
 		if (params->precision < length && params->precision != 0)
 			length = params->precision;

@@ -23,6 +23,32 @@ void	ft_print_blank_d(t_param *params, size_t length)
 		{
 			while (i < (params->width - length - params->symbol))
 			{
+				ft_putchar('0');
+				i++;
+			}
+		}
+		else
+		{
+			while (i < (params->width - params->precision - params->symbol))
+			{
+				ft_putchar('0');
+				i++;
+			}
+		}
+	}
+}
+
+void	ft_print_blank_d(t_param *params, size_t length)
+{
+	size_t i;
+
+	i = 0;
+	if (params->width > length && params->width > params->precision)
+	{
+		if (params->precision < length)
+		{
+			while (i < (params->width - length - params->symbol))
+			{
 				ft_putchar(' ');
 				i++;
 			}

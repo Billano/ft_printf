@@ -110,6 +110,7 @@ size_t ft_printf_lx_z(va_list ap, t_param *params);
 //flags
 void	ft_print_blank_s(t_param *params, size_t length);
 void	ft_print_blank_d(t_param *params, size_t length);
+void	ft_print_blank_d_zero(t_param *params, size_t length);
 void ft_print_sign(t_param *params);
 void ft_print_zero(t_param *params, size_t length);
 

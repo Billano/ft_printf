@@ -60,6 +60,10 @@ int	ft_printf(const char *format, ...)
 				str_length += ft_printf_x(ap, params);
 			else if (*s && s[trimmed_length - 1] == 'X')
 				str_length += ft_printf_lx(ap, params);
+			else if (*s && s[trimmed_length - 1] == 'p')
+			{
+				params->flags = ft_strcat(params->flags, "#");
+				str_length += ft_printf_lx(ap, params);
 			else
 				va_arg(ap, void *);
 

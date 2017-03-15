@@ -34,12 +34,7 @@ char			*ft_printf_str_trim(const char *str)
 	while (!ft_specifier_printf(str[len]) && str[len])
 		len++;
 	fmt = ft_strnew(len);
-	// if (str[len] == '%' && len == 0)
-	// {
-	// 	fmt = fmt[len] = '%';
-	// 	return (fmt);
-	// }
-	while (i <= len && str[len])
+	while (i <= len)
 	{
 		fmt[i] = str[i];
 		i++;

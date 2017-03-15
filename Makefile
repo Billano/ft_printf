@@ -133,6 +133,8 @@ PF += $(P)ft_print_zero.c
 PF += $(P)ft_printf_d_helper.c
 PF += $(P)ft_printf_u.c
 PF += $(P)ft_printf_u_helper.c
+PF += $(P)ft_printf_o.c
+PF += $(P)ft_printf_o_helper.c
 
 OF = btree_apply_infix.o
 OF += btree_apply_prefix.o
@@ -247,6 +249,8 @@ OF += ft_print_zero.o
 OF += ft_printf_d_helper.o
 OF += ft_printf_u.o
 OF += ft_printf_u_helper.o
+OF += ft_printf_o.o
+OF += ft_printf_o_helper.o
 
 all: $(NAME)
 

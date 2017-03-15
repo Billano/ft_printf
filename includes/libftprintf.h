@@ -79,6 +79,16 @@ size_t ft_printf_u_ll(va_list ap, t_param *params);
 size_t ft_printf_u_j(va_list ap, t_param *params);
 size_t ft_printf_u_z(va_list ap, t_param *params);
 
+// o
+size_t ft_printf_o(va_list ap, t_param *params);
+size_t ft_printf_o_i(va_list ap, t_param *params);
+size_t ft_printf_o_h(va_list ap, t_param *params);
+size_t ft_printf_o_hh(va_list ap, t_param *params);
+size_t ft_printf_o_l(va_list ap, t_param *params);
+size_t ft_printf_o_ll(va_list ap, t_param *params);
+size_t ft_printf_o_j(va_list ap, t_param *params);
+size_t ft_printf_o_z(va_list ap, t_param *params);
+
 //flags
 void	ft_print_blank_s(t_param *params, size_t length);
 void	ft_print_blank_d(t_param *params, size_t length);

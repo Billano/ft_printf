@@ -63,6 +63,7 @@ int	ft_printf(const char *format, ...)
 			else if (*s && s[trimmed_length - 1] == 'p')
 			{
 				params->flags = ft_strcat(params->flags, "#");
+				params->specifier = 'x';
 				str_length += ft_printf_x(ap, params);
 			}
 			else

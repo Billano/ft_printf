@@ -53,6 +53,12 @@ int	ft_printf(const char *format, ...)
 				str_length += ft_printf_u_l(ap, params);
 			else if (*s && s[trimmed_length - 1] == 'o')
 				str_length += ft_printf_o(ap, params);
+			else if (*s && s[trimmed_length - 1] == 'O')
+				str_length += ft_printf_o_l(ap, params);
+			else if (*s && s[trimmed_length - 1] == 'x')
+				str_length += ft_printf_x(ap, params);
+			else if (*s && s[trimmed_length - 1] == 'X')
+				str_length += ft_printf_lx(ap, params);
 			else
 				va_arg(ap, void *);
 

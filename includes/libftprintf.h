@@ -89,6 +89,26 @@ size_t ft_printf_o_ll(va_list ap, t_param *params);
 size_t ft_printf_o_j(va_list ap, t_param *params);
 size_t ft_printf_o_z(va_list ap, t_param *params);
 
+// x
+size_t ft_printf_x(va_list ap, t_param *params);
+size_t ft_printf_x_i(va_list ap, t_param *params);
+size_t ft_printf_x_h(va_list ap, t_param *params);
+size_t ft_printf_x_hh(va_list ap, t_param *params);
+size_t ft_printf_x_l(va_list ap, t_param *params);
+size_t ft_printf_x_ll(va_list ap, t_param *params);
+size_t ft_printf_x_j(va_list ap, t_param *params);
+size_t ft_printf_x_z(va_list ap, t_param *params);
+// X = lx
+size_t ft_printf_lx(va_list ap, t_param *params);
+size_t ft_printf_lx_i(va_list ap, t_param *params);
+size_t ft_printf_lx_h(va_list ap, t_param *params);
+size_t ft_printf_lx_hh(va_list ap, t_param *params);
+size_t ft_printf_lx_l(va_list ap, t_param *params);
+size_t ft_printf_lx_ll(va_list ap, t_param *params);
+size_t ft_printf_lx_j(va_list ap, t_param *params);
+size_t ft_printf_lx_z(va_list ap, t_param *params);
+
+
 //flags
 void	ft_print_blank_s(t_param *params, size_t length);
 void	ft_print_blank_d(t_param *params, size_t length);
@@ -101,5 +121,5 @@ void	ft_putchar_n_bytes(wchar_t c, size_t n);
 size_t	ft_wstrlen(wchar_t *str);
 char	*ft_itoa_base(long long int value, int base);
 char	*ft_uitoa_base(unsigned long long int value, int base);
-
+char	*ft_uitoa_base_l(unsigned long long int value, int base);
 #endif

@@ -12,6 +12,33 @@
 
 #include "../includes/libftprintf.h"
 
+char	*ft_uitoa_base_l(unsigned long long int value, int base)
+{
+	unsigned long long int	tmp;
+	char					*str;
+	size_t					len;
+	char					*nb;
+
+	nb = ft_strdup("0123456789abcdef");
+	if (!value || base < 2 || base > 16)
+		return ("0");
+	tmp = value;
+	len = 0;
+	while (tmp > 0)
+	{
+		tmp /= base;
+		len++;
+	}
+	str = ft_strnew(len);
+	tmp = value;
+	while (tmp && len--)
+	{
+		str[len] = nb[tmp % base];
+		tmp /= base;
+	}
+	return (str);
+}
+
 char	*ft_uitoa_base(unsigned long long int value, int base)
 {
 	unsigned long long int	tmp;

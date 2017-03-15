@@ -22,11 +22,11 @@ void ft_print_d_helper(t_param *params, size_t length, char *nbr)
 	else
 	{
 		ft_print_blank_d(params, length);
-		if (ft_printf_str_contains(params->flags, '#') && (params->specifier\
-			== 'o' || params->specifier == 'x' || params->specifier == 'X') &&\
-			length == 1 && *nbr == '0')
-			;
-		else
+		// if (ft_printf_str_contains(params->flags, '#') && (params->specifier\
+		// 	== 'o' || params->specifier == 'x' || params->specifier == 'X') &&\
+		// 	length == 1 && *nbr == '0')
+		// 	;
+		// else
 			ft_print_sign(params);
 	}
 	ft_print_zero(params, length);

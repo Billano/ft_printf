@@ -55,7 +55,10 @@ size_t	ft_printf_d_j(va_list ap, t_param *params)
 	length = 0;
 	n = va_arg(ap, intmax_t);
 	if (n < 0)
+	{
 		params->sign = 1;
+		params->symbol = 1;
+	}
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
 	ft_print_d(params, length, nbr);
@@ -73,7 +76,10 @@ size_t	ft_printf_d_ll(va_list ap, t_param *params)
 	length = 0;
 	n = va_arg(ap, long long int);
 	if (n < 0)
+	{
 		params->sign = 1;
+		params->symbol = 1;
+	}
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
 	ft_print_d(params, length, nbr);

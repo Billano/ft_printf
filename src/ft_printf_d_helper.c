@@ -12,6 +12,26 @@
 
 #include "../includes/libftprintf.h"
 
+void ft_print_d_helper(t_param *params, size_t length, char *nbr)
+{
+	if (ft_printf_str_contains(params->flags, '0') && params->precision < length)
+	{
+		ft_print_sign(params);
+		ft_print_blank_d_zero(params, length);
+	}
+	else
+	{
+		ft_print_blank_d(params, length);
+		if (ft_printf_str_contains(params->flags, '#') && (params->specifier\
+			== 'o' || params->specifier == 'x' || params->specifier == 'X') &&\
+			length == 1 && *nbr == '0')
+			;
+		else
+			ft_print_sign(params);
+	}
+	ft_print_zero(params, length);
+	ft_putstr(nbr);
+}
 void	ft_print_d(t_param *params, size_t length, char *nbr)
 {
 	if (ft_printf_str_contains(params->flags, '-'))
@@ -23,22 +43,7 @@ void	ft_print_d(t_param *params, size_t length, char *nbr)
 	}
 	else
 	{
-		if (ft_printf_str_contains(params->flags, '0') && params->precision < length)
-		{
-			ft_print_sign(params);
-			ft_print_blank_d_zero(params, length);
-		}
-		else
-		{
-			ft_print_blank_d(params, length);
-			if (ft_printf_str_contains(params->flags, '#') && (params->specifier\
-				== 'o' || params->specifier == 'x' || params->specifier == 'X') && length == 1 && *nbr == '0')
-				;
-			else
-				ft_print_sign(params);
-		}
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
+		ft_print_d_helper(params, length, nbr);
 	}
 }
 

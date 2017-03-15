@@ -23,6 +23,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <wchar.h>
+# include <limits.h>
 
 typedef struct		s_param
 {

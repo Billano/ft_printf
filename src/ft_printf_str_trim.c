@@ -17,7 +17,7 @@ int				ft_specifier_printf(char c)
 	if (c == 's' || c == 'S' || c == 'p' || c == 'd' || c == 'D' || c == 'i'
 		|| c == 'o' || c == 'O' || c == 'u' || c == 'U' || c == 'x' || c == 'X'
 		|| c == 'c' || c == 'C' || c == 'e' || c == 'E' || c == 'f' || c == 'F'
-		|| c == 'g' || c == 'G' || c == 'a' || c == 'A' || c == 'n')
+		|| c == 'g' || c == 'G' || c == 'a' || c == 'A' || c == 'n' || c == '%')
 		return (1);
 	return (0);
 }
@@ -32,6 +32,8 @@ char			*ft_printf_str_trim(const char *str)
 	len = 0;
 	while (!ft_specifier_printf(str[len]) && str[len])
 		len++;
+	if (str[len] == '%')
+		return ("%%");
 	fmt = ft_strnew(len + 1);
 	while (i <= len && str[len])
 	{

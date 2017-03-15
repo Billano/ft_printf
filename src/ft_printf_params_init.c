@@ -23,6 +23,8 @@ t_param	*ft_printf_params_init(char *str)
 	params->precision = ft_printf_precision(str);
 	params->length = ft_printf_length(str);
 	params->sign = 0;
+	params->strlen = ft_strlen(str);
+	params->specifier = str[params->strlen - 1];
 	params->symbol = 0;
 	if (ft_printf_str_contains(params->flags, '+') ||\
 		ft_printf_str_contains(params->flags, ' '))

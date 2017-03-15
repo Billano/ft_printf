@@ -28,6 +28,7 @@ int	ft_printf(const char *format, ...)
 		{
 			format++;
 			s = ft_printf_str_trim(format);
+			trimmed_length = ft_strlen(s);
 			params = ft_printf_params_init(s);
 			trimmed_length = ft_strlen(s);
 			if (*s && s[trimmed_length - 1] == '%')

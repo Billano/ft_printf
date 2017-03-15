@@ -20,4 +20,13 @@ void	ft_print_sign(t_param *params)
 		ft_putchar(' ');
 	else if (params->sign == 1)
 		ft_putchar('-');
+	else if (ft_printf_str_contains(params->flags, '#'))
+	{
+		if (params->specifier == 'o')
+			ft_putstr("0");
+		else if (params->specifier == 'x')
+			ft_putstr("0x");
+		else if (params->specifier == 'o')
+			ft_putstr("0X");
+	}
 }

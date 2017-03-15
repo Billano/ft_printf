@@ -32,6 +32,8 @@ typedef struct		s_param
   char    *length;
 	int 		sign;
 	int			symbol;
+	size_t 	strlen;
+	char		specifier;
 }					t_param;
 
 int ft_printf(const char *format, ...);

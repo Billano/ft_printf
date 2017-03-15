@@ -49,6 +49,8 @@ size_t	ft_printf_d_z(va_list ap, t_param *params)
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
 	ft_print_d(params, length, nbr);
+	if (params->symbol == 1)
+		length += 1;
 	length = ft_max_number(length,\
 		ft_max_number(params->width, params->precision));
 	return (length);
@@ -70,6 +72,8 @@ size_t	ft_printf_d_j(va_list ap, t_param *params)
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
 	ft_print_d(params, length, nbr);
+	if (params->symbol == 1)
+		length += 1;
 	length = ft_max_number(length,\
 		ft_max_number(params->width, params->precision));
 	return (length);
@@ -91,6 +95,8 @@ size_t	ft_printf_d_ll(va_list ap, t_param *params)
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
 	ft_print_d(params, length, nbr);
+	if (params->symbol == 1)
+		length += 1;
 	length = ft_max_number(length,\
 		ft_max_number(params->width, params->precision));
 	return (length);

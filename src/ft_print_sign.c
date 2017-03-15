@@ -12,14 +12,12 @@
 
 #include "../includes/libftprintf.h"
 
-void	ft_print_sign(t_param *params, size_t length)
+void	ft_print_sign(t_param *params)
 {
-	if (length > 0 && ft_printf_str_contains(params->flags, '+'))
+	if (params->sign == 0 && ft_printf_str_contains(params->flags, '+'))
 		ft_putchar('+');
-	else if (length > 0 && ft_printf_str_contains(params->flags, ' '))
+	else if (params->sign == 0 && ft_printf_str_contains(params->flags, ' '))
 		ft_putchar(' ');
-	else if (params->sign == 0)
-		return ;
-	else
+	else if (params->sign == 1)
 		ft_putchar('-');
 }

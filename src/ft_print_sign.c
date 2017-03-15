@@ -14,13 +14,7 @@
 
 void	ft_print_sign(t_param *params)
 {
-	if (params->sign == 0 && ft_printf_str_contains(params->flags, '+'))
-		ft_putchar('+');
-	else if (params->sign == 0 && ft_printf_str_contains(params->flags, ' '))
-		ft_putchar(' ');
-	else if (params->sign == 1)
-		ft_putchar('-');
-	else if (ft_printf_str_contains(params->flags, '#'))
+	if (ft_printf_str_contains(params->flags, '#'))
 	{
 		if (params->specifier == 'o')
 			ft_putstr("0");
@@ -29,4 +23,10 @@ void	ft_print_sign(t_param *params)
 		else if (params->specifier == 'o')
 			ft_putstr("0X");
 	}
+	else if (params->sign == 0 && ft_printf_str_contains(params->flags, '+'))
+		ft_putchar('+');
+	else if (params->sign == 0 && ft_printf_str_contains(params->flags, ' '))
+		ft_putchar(' ');
+	else if (params->sign == 1)
+		ft_putchar('-');
 }

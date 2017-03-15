@@ -36,7 +36,7 @@ char			*ft_printf_str_trim(const char *str)
 	fmt = ft_strnew(len);
 	if (str[len] == '%' && len == 0)
 	{
-		fmt = ftm[len] = '%';
+		fmt = fmt[len] = '%';
 		return (fmt);
 	}
 	while (i <= len && str[len])

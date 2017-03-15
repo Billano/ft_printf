@@ -20,7 +20,7 @@ size_t	ft_printf_u_z(va_list ap, t_param *params)
 
 	length = 0;
 	n = va_arg(ap, size_t);
-	nbr = ft_itoa_base(n, 10);
+	nbr = ft_uitoa_base(n, 10);
 	length = ft_strlen(nbr);
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\
@@ -36,7 +36,7 @@ size_t	ft_printf_u_j(va_list ap, t_param *params)
 
 	length = 0;
 	n = va_arg(ap, uintmax_t);
-	nbr = ft_itoa_base(n, 10);
+	nbr = ft_uitoa_base(n, 10);
 	length = ft_strlen(nbr);
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\
@@ -52,7 +52,7 @@ size_t	ft_printf_u_ll(va_list ap, t_param *params)
 
 	length = 0;
 	n = va_arg(ap, unsigned long long int);
-	nbr = ft_itoa_base(n, 10);
+	nbr = ft_uitoa_base(n, 10);
 	length = ft_strlen(nbr);
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\

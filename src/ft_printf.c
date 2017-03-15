@@ -67,8 +67,11 @@ int	ft_printf(const char *format, ...)
 		str_length += 1;
 		if (!*format)
 			break;
+		if (*format != '%')
+		{
 		ft_putchar(*format);
 		format++;
+		}
 	}
 	va_end(ap);
 	return (str_length);

@@ -30,10 +30,10 @@ char			*ft_printf_str_trim(const char *str)
 
 	i = 0;
 	len = 0;
+	if (str[len] == '%')
+		return ('%');
 	while (!ft_specifier_printf(str[len]) && str[len])
 		len++;
-	if (str[len] == '%' && len == 0)
-		return ('%');
 	fmt = ft_strnew(len + 1);
 	while (i <= len && str[len])
 	{

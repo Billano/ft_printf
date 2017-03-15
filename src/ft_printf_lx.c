@@ -20,6 +20,8 @@ size_t	ft_printf_lx_l(va_list ap, t_param *params)
 
 	length = 0;
 	n = va_arg(ap, unsigned long int);
+	if (n == 0)
+		params->sign = -1;
 	nbr = ft_uitoa_base(n, 16);
 	length = ft_strlen(nbr);
 	if (ft_printf_str_contains(params->flags, '#'))
@@ -38,6 +40,8 @@ size_t	ft_printf_lx_h(va_list ap, t_param *params)
 
 	length = 0;
 	n = va_arg(ap, unsigned int);
+	if (n == 0)
+		params->sign = -1;
 	nbr = ft_uitoa_base(n, 16);
 	length = ft_strlen(nbr);
 	if (ft_printf_str_contains(params->flags, '#'))
@@ -56,6 +60,8 @@ size_t	ft_printf_lx_hh(va_list ap, t_param *params)
 
 	length = 0;
 	n = va_arg(ap, unsigned int);
+	if (n == 0)
+		params->sign = -1;
 	nbr = ft_uitoa_base(n, 16);
 	length = ft_strlen(nbr);
 	if (ft_printf_str_contains(params->flags, '#'))
@@ -74,6 +80,8 @@ size_t	ft_printf_lx_i(va_list ap, t_param *params)
 
 	length = 0;
 	n = va_arg(ap, unsigned int);
+	if (n == 0)
+		params->sign = -1;
 	nbr = ft_uitoa_base(n, 16);
 	length = ft_strlen(nbr);
 	if (ft_printf_str_contains(params->flags, '#'))

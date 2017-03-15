@@ -12,7 +12,7 @@
 
 #include "../includes/libftprintf.h"
 
-void	ft_print_blank_d(t_param *params, size_t length)
+void	ft_print_blank_d_zero(t_param *params, size_t length)
 {
 	size_t i;
 

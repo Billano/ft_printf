@@ -22,20 +22,9 @@ size_t	ft_printf_u_l(va_list ap, t_param *params)
 	n = va_arg(ap, unsigned long int);
 	nbr = ft_uitoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (ft_printf_str_contains(params->flags, '-') == 1)
-	{
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-		ft_print_blank_d(params, length);
-	}
-	else
-	{
-		ft_print_blank_d(params, length);
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-	}
+	ft_print_d(params, length, nbr);
+	length = ft_max_number(length,\
+		ft_max_number(params->width, params->precision));
 	return (length);
 }
 
@@ -49,20 +38,9 @@ size_t	ft_printf_u_h(va_list ap, t_param *params)
 	n = va_arg(ap, unsigned int);
 	nbr = ft_uitoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (ft_printf_str_contains(params->flags, '-') == 1)
-	{
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-		ft_print_blank_d(params, length);
-	}
-	else
-	{
-		ft_print_blank_d(params, length);
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-	}
+	ft_print_d(params, length, nbr);
+	length = ft_max_number(length,\
+		ft_max_number(params->width, params->precision));
 	return (length);
 }
 
@@ -76,20 +54,9 @@ size_t	ft_printf_u_hh(va_list ap, t_param *params)
 	n = va_arg(ap, unsigned int);
 	nbr = ft_uitoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (ft_printf_str_contains(params->flags, '-') == 1)
-	{
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-		ft_print_blank_d(params, length);
-	}
-	else
-	{
-		ft_print_blank_d(params, length);
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-	}
+	ft_print_d(params, length, nbr);
+	length = ft_max_number(length,\
+		ft_max_number(params->width, params->precision));
 	return (length);
 }
 
@@ -103,20 +70,9 @@ size_t	ft_printf_u_i(va_list ap, t_param *params)
 	n = va_arg(ap, unsigned int);
 	nbr = ft_uitoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (ft_printf_str_contains(params->flags, '-') == 1)
-	{
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-		ft_print_blank_d(params, length);
-	}
-	else
-	{
-		ft_print_blank_d(params, length);
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-	}
+	ft_print_d(params, length, nbr);
+	length = ft_max_number(length,\
+		ft_max_number(params->width, params->precision));
 	return (length);
 }
 

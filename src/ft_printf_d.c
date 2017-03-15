@@ -24,20 +24,9 @@ size_t	ft_printf_d_l(va_list ap, t_param *params)
 		params->sign = 1;
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (ft_printf_str_contains(params->flags, '-') == 1)
-	{
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-		ft_print_blank_d(params, length);
-	}
-	else
-	{
-		ft_print_blank_d(params, length);
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-	}
+	ft_print_d(params, length, nbr);
+	length = ft_max_number(length,\
+		ft_max_number(params->width, params->precision));
 	return (length);
 }
 
@@ -53,20 +42,9 @@ size_t	ft_printf_d_h(va_list ap, t_param *params)
 		params->sign = 1;
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (ft_printf_str_contains(params->flags, '-') == 1)
-	{
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-		ft_print_blank_d(params, length);
-	}
-	else
-	{
-		ft_print_blank_d(params, length);
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-	}
+	ft_print_d(params, length, nbr);
+	length = ft_max_number(length,\
+		ft_max_number(params->width, params->precision));
 	return (length);
 }
 
@@ -82,20 +60,9 @@ size_t	ft_printf_d_hh(va_list ap, t_param *params)
 		params->sign = 1;
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (ft_printf_str_contains(params->flags, '-') == 1)
-	{
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-		ft_print_blank_d(params, length);
-	}
-	else
-	{
-		ft_print_blank_d(params, length);
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-	}
+	ft_print_d(params, length, nbr);
+	length = ft_max_number(length,\
+		ft_max_number(params->width, params->precision));
 	return (length);
 }
 
@@ -111,20 +78,9 @@ size_t	ft_printf_d_i(va_list ap, t_param *params)
 		params->sign = 1;
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (ft_printf_str_contains(params->flags, '-') == 1)
-	{
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-		ft_print_blank_d(params, length);
-	}
-	else
-	{
-		ft_print_blank_d(params, length);
-		ft_print_sign(params, length);
-		ft_print_zero(params, length);
-		ft_putstr(nbr);
-	}
+	ft_print_d(params, length, nbr);
+	length = ft_max_number(length,\
+		ft_max_number(params->width, params->precision));
 	return (length);
 }
 

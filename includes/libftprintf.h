@@ -60,6 +60,7 @@ size_t	ft_printf_lc(va_list ap, t_param *params);
 size_t	ft_printf_c(va_list ap, t_param *params);
 
 // d, D, i, I
+void ft_print_d(t_param *params, size_t length, char *nbr);
 size_t ft_printf_d(va_list ap, t_param *params);
 size_t ft_printf_d_i(va_list ap, t_param *params);
 size_t ft_printf_d_h(va_list ap, t_param *params);

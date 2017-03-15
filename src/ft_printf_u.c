@@ -81,17 +81,17 @@ size_t	ft_printf_u(va_list ap, t_param *params)
 	size_t		length;
 
 	length = 0;
-	if (ft_strcmp(params->length, "h" == 0))
+	if (ft_strcmp(params->length, "h") == 0)
 		length += ft_printf_u_h(ap, params);
-	else if (ft_strcmp(params->length, "hh" == 0))
+	else if (ft_strcmp(params->length, "hh") == 0)
 		length += ft_printf_u_hh(ap, params);
-	else if (ft_strcmp(params->length, "l" == 0))
+	else if (ft_strcmp(params->length, "l") == 0)
 		length += ft_printf_u_l(ap, params);
-	else if (ft_strcmp(params->length, "ll" == 0))
+	else if (ft_strcmp(params->length, "ll") == 0)
 		length += ft_printf_u_ll(ap, params);
-	else if (ft_strcmp(params->length, "j" == 0))
+	else if (ft_strcmp(params->length, "j") == 0)
 		length += ft_printf_u_j(ap, params);
-	else if (ft_strcmp(params->length, "z" == 0))
+	else if (ft_strcmp(params->length, "z") == 0)
 		length += ft_printf_u_z(ap, params);
 	else
 		length += ft_printf_u_i(ap, params);

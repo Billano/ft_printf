@@ -80,7 +80,9 @@ size_t	ft_printf_o_i(va_list ap, t_param *params)
 
 	length = 0;
 	n = va_arg(ap, unsigned int);
-	if (n == 0)
+	if (ft_printf_str_contains(params->flags, '#') && (params->specifier\
+		== 'o' || params->specifier == 'x' || params->specifier == 'X') &&\
+		length == 1 && *nbr == '0')//if (n == 0)
 		params->sign = -1;
 	nbr = ft_uitoa_base(n, 8);
 	length = ft_strlen(nbr);

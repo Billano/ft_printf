@@ -12,7 +12,7 @@
 
 #include "../includes/libftprintf.h"
 
-void ft_printf_n_size_t(va_list ap, size_t length)
+void	ft_printf_n_size_t(va_list ap, size_t length)
 {
 	size_t *n;
 

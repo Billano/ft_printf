@@ -43,16 +43,16 @@ int	ft_printf(const char *format, ...)
 				str_length += ft_printf_lc(ap, params);
 			else if (*s && (s[trimmed_length - 1] == 'd' || s[trimmed_length - 1] == 'i'))
 				str_length += ft_printf_d(ap, params);
-				else if (*s && s[trimmed_length - 1] == 'D')
-					str_length += ft_printf_d_l(ap, params);
+			else if (*s && s[trimmed_length - 1] == 'D')
+				str_length += ft_printf_d_l_int(ap, params);
 			else if (*s && s[trimmed_length - 1] == 'u')
 				str_length += ft_printf_u(ap, params);
 			else if (*s && s[trimmed_length - 1] == 'U')
-				str_length += ft_printf_u_l(ap, params);
+				str_length += ft_printf_u_l_int(ap, params);
 			else if (*s && s[trimmed_length - 1] == 'o')
 				str_length += ft_printf_o(ap, params);
 			else if (*s && s[trimmed_length - 1] == 'O')
-				str_length += ft_printf_o_l(ap, params);
+				str_length += ft_printf_o_l_int(ap, params);
 			else if (*s && s[trimmed_length - 1] == 'x')
 				str_length += ft_printf_x(ap, params);
 			else if (*s && s[trimmed_length - 1] == 'X')
@@ -60,7 +60,7 @@ int	ft_printf(const char *format, ...)
 			else if (*s && s[trimmed_length - 1] == 'p')
 			{
 				params->flags = ft_strcat(params->flags, "ll#");
-				str_length += ft_printf_x_l(ap, params);
+				str_length += ft_printf_x_l_int(ap, params);
 			}
 			else if (*s && s[trimmed_length - 1] == 'n')
 				ft_printf_n(ap, params, str_length);

@@ -12,9 +12,10 @@
 
 #include "../includes/libftprintf.h"
 
-void ft_print_d_helper(t_param *params, size_t length, char *nbr)
+void	ft_print_d_helper(t_param *params, size_t length, char *nbr)
 {
-	if (ft_printf_str_contains(params->flags, '0') && params->precision < length)
+	if (ft_printf_str_contains(params->flags, '0') &&
+		params->precision < length)
 	{
 		ft_print_sign(params);
 		ft_print_blank_d_zero(params, length);
@@ -28,6 +29,7 @@ void ft_print_d_helper(t_param *params, size_t length, char *nbr)
 	if (!(params->precision_flag && *nbr == '0' && params->precision == 0))
 		ft_putstr(nbr);
 }
+
 void	ft_print_d(t_param *params, size_t length, char *nbr)
 {
 	if (ft_printf_str_contains(params->flags, '-'))
@@ -44,7 +46,7 @@ void	ft_print_d(t_param *params, size_t length, char *nbr)
 	}
 }
 
-size_t	ft_printf_d_z(va_list ap, t_param *params)
+size_t	ft_printf_d_size_t(va_list ap, t_param *params)
 {
 	size_t		n;
 	char		*nbr;
@@ -52,56 +54,6 @@ size_t	ft_printf_d_z(va_list ap, t_param *params)
 
 	length = 0;
 	n = va_arg(ap, size_t);
-	nbr = ft_itoa_base(n, 10);
-	length = ft_strlen(nbr);
-	if (params->precision_flag && params->precision == 0 && *nbr == '0')
-		length = 0;
-	ft_print_d(params, length, nbr);
-	if (params->symbol == 1)
-		length += 1;
-	length = ft_max_number(length,\
-		ft_max_number(params->width, params->precision));
-	return (length);
-}
-
-size_t	ft_printf_d_j(va_list ap, t_param *params)
-{
-	intmax_t	n;
-	char		*nbr;
-	size_t		length;
-
-	length = 0;
-	n = va_arg(ap, intmax_t);
-	if (n < 0)
-	{
-		params->sign = 1;
-		params->symbol = 1;
-	}
-	nbr = ft_itoa_base(n, 10);
-	length = ft_strlen(nbr);
-	if (params->precision_flag && params->precision == 0 && *nbr == '0')
-		length = 0;
-	ft_print_d(params, length, nbr);
-	if (params->symbol == 1)
-		length += 1;
-	length = ft_max_number(length,\
-		ft_max_number(params->width, params->precision));
-	return (length);
-}
-
-size_t	ft_printf_d_ll(va_list ap, t_param *params)
-{
-	long long int	n;
-	char			*nbr;
-	size_t			length;
-
-	length = 0;
-	n = va_arg(ap, long long int);
-	if (n < 0)
-	{
-		params->sign = 1;
-		params->symbol = 1;
-	}
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
 	if (params->precision_flag && params->precision == 0 && *nbr == '0')

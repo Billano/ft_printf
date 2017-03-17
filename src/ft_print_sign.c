@@ -6,7 +6,7 @@
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:22:38 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/03/13 18:25:08 by eurodrig         ###   ########.fr       */
+/*   Updated: 2017/03/17 02:05:00 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	ft_print_sign(t_param *params)
 {
-	if (ft_printf_str_contains(params->flags, '#') && (params->sign == 0 || params->specifier == 'p'))
+	if (ft_printf_str_contains(params->flags, '#') && (params->sign == 0 ||
+				params->specifier == 'p'))
 	{
 		if (params->specifier == 'o')
 			ft_putstr("0");
@@ -23,8 +24,8 @@ void	ft_print_sign(t_param *params)
 		else if (params->specifier == 'X')
 			ft_putstr("0X");
 	}
-	else if (ft_printf_str_contains(params->flags, '#') && params->precision_flag
-		&& params->precision == 0)
+	else if (ft_printf_str_contains(params->flags, '#') &&
+			params->precision_flag && params->precision == 0)
 	{
 		if (params->specifier == 'o')
 			ft_putstr("0");
@@ -33,7 +34,8 @@ void	ft_print_sign(t_param *params)
 	{
 		if (params->sign == 0 && ft_printf_str_contains(params->flags, '+'))
 			ft_putchar('+');
-		else if (params->sign == 0 && ft_printf_str_contains(params->flags, ' '))
+		else if (params->sign == 0 &&
+				ft_printf_str_contains(params->flags, ' '))
 			ft_putchar(' ');
 		else if (params->sign == 1)
 			ft_putchar('-');

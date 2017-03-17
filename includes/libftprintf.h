@@ -70,51 +70,41 @@ size_t	ft_printf_c(va_list ap, t_param *params);
 // d, D, i, I
 void ft_print_d(t_param *params, size_t length, char *nbr);
 size_t ft_printf_d(va_list ap, t_param *params);
-size_t ft_printf_d_i(va_list ap, t_param *params);
-size_t ft_printf_d_h(va_list ap, t_param *params);
-size_t ft_printf_d_hh(va_list ap, t_param *params);
-size_t ft_printf_d_l(va_list ap, t_param *params);
-size_t ft_printf_d_ll(va_list ap, t_param *params);
-size_t ft_printf_d_j(va_list ap, t_param *params);
-size_t ft_printf_d_z(va_list ap, t_param *params);
+size_t ft_printf_d_int(va_list ap, t_param *params);
+size_t ft_printf_d_l_int(va_list ap, t_param *params);
+size_t ft_printf_d_l_l_int(va_list ap, t_param *params);
+size_t ft_printf_d_intmax_t(va_list ap, t_param *params);
+size_t ft_printf_d_size_t(va_list ap, t_param *params);
 // u
 size_t ft_printf_u(va_list ap, t_param *params);
-size_t ft_printf_u_i(va_list ap, t_param *params);
-size_t ft_printf_u_h(va_list ap, t_param *params);
-size_t ft_printf_u_hh(va_list ap, t_param *params);
-size_t ft_printf_u_l(va_list ap, t_param *params);
-size_t ft_printf_u_ll(va_list ap, t_param *params);
-size_t ft_printf_u_j(va_list ap, t_param *params);
-size_t ft_printf_u_z(va_list ap, t_param *params);
+size_t ft_printf_u_int(va_list ap, t_param *params);
+size_t ft_printf_u_l_int(va_list ap, t_param *params);
+size_t ft_printf_u_l_l_int(va_list ap, t_param *params);
+size_t ft_printf_u_intmax_t(va_list ap, t_param *params);
+size_t ft_printf_u_size_t(va_list ap, t_param *params);
 
 // o
 size_t ft_printf_o(va_list ap, t_param *params);
-size_t ft_printf_o_i(va_list ap, t_param *params);
-size_t ft_printf_o_h(va_list ap, t_param *params);
-size_t ft_printf_o_hh(va_list ap, t_param *params);
-size_t ft_printf_o_l(va_list ap, t_param *params);
-size_t ft_printf_o_ll(va_list ap, t_param *params);
-size_t ft_printf_o_j(va_list ap, t_param *params);
-size_t ft_printf_o_z(va_list ap, t_param *params);
+size_t ft_printf_o_int(va_list ap, t_param *params);
+size_t ft_printf_o_l_int(va_list ap, t_param *params);
+size_t ft_printf_o_l_l_int(va_list ap, t_param *params);
+size_t ft_printf_o_intmax_t(va_list ap, t_param *params);
+size_t ft_printf_o_size_t(va_list ap, t_param *params);
 
 // x
 size_t ft_printf_x(va_list ap, t_param *params);
-size_t ft_printf_x_i(va_list ap, t_param *params);
-size_t ft_printf_x_h(va_list ap, t_param *params);
-size_t ft_printf_x_hh(va_list ap, t_param *params);
-size_t ft_printf_x_l(va_list ap, t_param *params);
-size_t ft_printf_x_ll(va_list ap, t_param *params);
-size_t ft_printf_x_j(va_list ap, t_param *params);
-size_t ft_printf_x_z(va_list ap, t_param *params);
+size_t ft_printf_x_int(va_list ap, t_param *params);
+size_t ft_printf_x_l_int(va_list ap, t_param *params);
+size_t ft_printf_x_l_l_int(va_list ap, t_param *params);
+size_t ft_printf_x_intmax_t(va_list ap, t_param *params);
+size_t ft_printf_x_size_t(va_list ap, t_param *params);
 // X = lx
 size_t ft_printf_lx(va_list ap, t_param *params);
-size_t ft_printf_lx_i(va_list ap, t_param *params);
-size_t ft_printf_lx_h(va_list ap, t_param *params);
-size_t ft_printf_lx_hh(va_list ap, t_param *params);
-size_t ft_printf_lx_l(va_list ap, t_param *params);
-size_t ft_printf_lx_ll(va_list ap, t_param *params);
-size_t ft_printf_lx_j(va_list ap, t_param *params);
-size_t ft_printf_lx_z(va_list ap, t_param *params);
+size_t ft_printf_lx_int(va_list ap, t_param *params);
+size_t ft_printf_lx_l_int(va_list ap, t_param *params);
+size_t ft_printf_lx_l_l_int(va_list ap, t_param *params);
+size_t ft_printf_lx_intmax_t(va_list ap, t_param *params);
+size_t ft_printf_lx_size_t(va_list ap, t_param *params);
 
 // n
 

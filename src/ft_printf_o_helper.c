@@ -6,23 +6,24 @@
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 21:33:22 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/03/14 21:33:23 by eurodrig         ###   ########.fr       */
+/*   Updated: 2017/03/17 01:51:39 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
 
-size_t	ft_printf_o_z(va_list ap, t_param *params)
+size_t	ft_printf_o_size_t(va_list ap, t_param *params)
 {
-	size_t		n;
-	char		*nbr;
-	size_t		length;
+	size_t			n;
+	char			*nbr;
+	size_t			length;
 
 	length = 0;
 	n = va_arg(ap, size_t);
 	nbr = ft_uitoa_base(n, 8);
 	length = ft_strlen(nbr);
-	if (ft_printf_str_contains(params->flags, '#') && length == 1 && *nbr == '0')
+	if (ft_printf_str_contains(params->flags, '#') && length == 1 &&
+			*nbr == '0')
 		params->sign = -1;
 	if (ft_printf_str_contains(params->flags, '#') && params->sign == 0)
 		length += 1;
@@ -34,17 +35,18 @@ size_t	ft_printf_o_z(va_list ap, t_param *params)
 	return (length);
 }
 
-size_t	ft_printf_o_j(va_list ap, t_param *params)
+size_t	ft_printf_o_intmax_t(va_list ap, t_param *params)
 {
-	uintmax_t	n;
-	char		*nbr;
-	size_t		length;
+	uintmax_t			n;
+	char				*nbr;
+	size_t				length;
 
 	length = 0;
 	n = va_arg(ap, uintmax_t);
 	nbr = ft_uitoa_base(n, 8);
 	length = ft_strlen(nbr);
-	if (ft_printf_str_contains(params->flags, '#') && length == 1 && *nbr == '0')
+	if (ft_printf_str_contains(params->flags, '#') && length == 1 &&
+			*nbr == '0')
 		params->sign = -1;
 	if (ft_printf_str_contains(params->flags, '#') && params->sign == 0)
 		length += 1;
@@ -56,17 +58,18 @@ size_t	ft_printf_o_j(va_list ap, t_param *params)
 	return (length);
 }
 
-size_t	ft_printf_o_ll(va_list ap, t_param *params)
+size_t	ft_printf_o_l_l_int(va_list ap, t_param *params)
 {
 	unsigned long long int	n;
-	char			*nbr;
-	size_t			length;
+	char					*nbr;
+	size_t					length;
 
 	length = 0;
 	n = va_arg(ap, unsigned long long int);
 	nbr = ft_uitoa_base(n, 8);
 	length = ft_strlen(nbr);
-	if (ft_printf_str_contains(params->flags, '#') && length == 1 && *nbr == '0')
+	if (ft_printf_str_contains(params->flags, '#') && length == 1 &&
+			*nbr == '0')
 		params->sign = -1;
 	if (ft_printf_str_contains(params->flags, '#') && params->sign == 0)
 		length += 1;

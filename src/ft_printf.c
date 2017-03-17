@@ -62,6 +62,8 @@ int	ft_printf(const char *format, ...)
 				params->flags = ft_strcat(params->flags, "ll#");
 				str_length += ft_printf_x_l(ap, params);
 			}
+			else if (*s && s[trimmed_length - 1] == 'n')
+				ft_printf_n(ap, params, str_length);
 			else
 				va_arg(ap, void *);
 			format += trimmed_length;

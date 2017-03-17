@@ -116,6 +116,16 @@ size_t ft_printf_lx_ll(va_list ap, t_param *params);
 size_t ft_printf_lx_j(va_list ap, t_param *params);
 size_t ft_printf_lx_z(va_list ap, t_param *params);
 
+// n
+
+void ft_printf_n_size_t(va_list ap,size_t length);
+void ft_printf_n_intmax_t(va_list ap,size_t length);
+void ft_printf_n_l_l_int(va_list ap,size_t length);
+void ft_printf_n_l_int(va_list ap,size_t length);
+void ft_printf_n_int(va_list ap,size_t length);
+void ft_printf_n(va_list ap, t_param *params, size_t length);
+
+
 //flags
 void	ft_print_blank_s(t_param *params, size_t length);
 void	ft_print_blank_d(t_param *params, size_t length);

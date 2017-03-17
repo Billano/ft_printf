@@ -22,7 +22,7 @@ size_t	ft_printf_u_l(va_list ap, t_param *params)
 	n = va_arg(ap, unsigned long int);
 	nbr = ft_uitoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (params->precision_flag && params->precision == 0)
+	if (params->precision_flag && params->precision == 0 && *nbr == '0')
 		length = 0;
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\
@@ -40,7 +40,7 @@ size_t	ft_printf_u_h(va_list ap, t_param *params)
 	n = va_arg(ap, unsigned int);
 	nbr = ft_uitoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (params->precision_flag && params->precision == 0)
+	if (params->precision_flag && params->precision == 0 && *nbr == '0')
 		length = 0;
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\
@@ -58,7 +58,7 @@ size_t	ft_printf_u_hh(va_list ap, t_param *params)
 	n = va_arg(ap, unsigned int);
 	nbr = ft_uitoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (params->precision_flag && params->precision == 0)
+	if (params->precision_flag && params->precision == 0 && *nbr == '0')
 		length = 0;
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\
@@ -76,7 +76,7 @@ size_t	ft_printf_u_i(va_list ap, t_param *params)
 	n = va_arg(ap, unsigned int);
 	nbr = ft_uitoa_base(n, 10);
 	length = ft_strlen(nbr);
-	if (params->precision_flag && params->precision == 0)
+	if (params->precision_flag && params->precision == 0 && *nbr == '0')
 		length = 0;
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\

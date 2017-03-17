@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_width.c                                  :+:      :+:    :+:   */
+/*   ft_printf_symbol.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/09 03:18:20 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/03/09 03:18:22 by eurodrig         ###   ########.fr       */
+/*   Created: 2017/03/16 21:55:51 by eurodrig          #+#    #+#             */
+/*   Updated: 2017/03/16 21:55:52 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
 
-size_t	ft_printf_width(char *str, va_list ap)
+int	ft_printf_symbol(char *flags)
 {
-	size_t i;
-
-	i = 0;
-	while (str[i])
-	{
-		if ((str[i] >= '1' && str[i] <= '9') || str[i] == '.' || str[i] == '*')
-			break ;
-		i++;
-	}
-	if (!str[i] || str[i] == '.')
-		return (0);
-	if (str[i] == '*')
-		return (va_arg(ap, int));
-	return (ft_atoi(str + i));
+	if (ft_printf_str_contains(flags, '+') || ft_printf_str_contains(flags, ' '))
+		return (1);
+	return (0);
 }

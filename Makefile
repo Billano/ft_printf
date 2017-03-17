@@ -140,6 +140,7 @@ PF += $(P)ft_printf_x_helper.c
 PF += $(P)ft_printf_lx.c
 PF += $(P)ft_printf_lx_helper.c
 PF += $(P)ft_printf_percent.c
+PF += $(P)ft_printf_symbol.c
 
 OF = btree_apply_infix.o
 OF += btree_apply_prefix.o
@@ -261,6 +262,7 @@ OF += ft_printf_x_helper.o
 OF += ft_printf_lx.o
 OF += ft_printf_lx_helper.o
 OF += ft_printf_percent.o
+OF += ft_printf_symbol.o
 
 all: $(NAME)
 

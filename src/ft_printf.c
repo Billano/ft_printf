@@ -29,7 +29,7 @@ int	ft_printf(const char *format, ...)
 			format++;
 			s = ft_printf_str_trim(format);
 			trimmed_length = ft_strlen(s);
-			params = ft_printf_params_init(s);
+			params = ft_printf_params_init(s, ap);
 			trimmed_length = ft_strlen(s);
 			if (*s && s[trimmed_length - 1] == '%')
 				str_length += ft_printf_percent(params);
@@ -78,11 +78,3 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	return (str_length);
 }
-
-// int	main()
-// {
-// 	printf("%s\n", "Hola");
-// 	ft_printf("%s\n", "Hola");
-// 	return (0);
-// }
-//gcc -Wall -Werror -Wextra $(SRCS) ./includes/libft/libft.a -I includes/libft/ -o executable

@@ -26,8 +26,7 @@ size_t	ft_printf_o_l(va_list ap, t_param *params)
 		params->sign = -1;
 	if (ft_printf_str_contains(params->flags, '#') && params->sign == 0)
 		length += 1;
-	if (params->precision_flag && params->precision == 0 &&
-		!ft_printf_str_contains(params->flags, '#'))
+	if (params->precision_flag && params->precision == 0 && *nbr == '0')
 		length = 0;
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\
@@ -49,8 +48,7 @@ size_t	ft_printf_o_h(va_list ap, t_param *params)
 		params->sign = -1;
 	if (ft_printf_str_contains(params->flags, '#') && params->sign == 0)
 		length += 1;
-	if (params->precision_flag && params->precision == 0 &&
-		!ft_printf_str_contains(params->flags, '#'))
+	if (params->precision_flag && params->precision == 0 && *nbr == '0')
 		length = 0;
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\
@@ -72,8 +70,7 @@ size_t	ft_printf_o_hh(va_list ap, t_param *params)
 		params->sign = -1;
 	if (ft_printf_str_contains(params->flags, '#') && params->sign == 0)
 		length += 1;
-	if (params->precision_flag && params->precision == 0 &&
-		!ft_printf_str_contains(params->flags, '#'))
+	if (params->precision_flag && params->precision == 0 && *nbr == '0')
 		length = 0;
 	ft_print_d(params, length, nbr);
 	length = ft_max_number(length,\

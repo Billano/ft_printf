@@ -23,10 +23,19 @@ void	ft_print_sign(t_param *params)
 		else if (params->specifier == 'X')
 			ft_putstr("0X");
 	}
-	else if (params->sign == 0 && ft_printf_str_contains(params->flags, '+'))
-		ft_putchar('+');
-	else if (params->sign == 0 && ft_printf_str_contains(params->flags, ' '))
-		ft_putchar(' ');
-	else if (params->sign == 1)
-		ft_putchar('-');
+	else if (ft_printf_str_contains(params->flags, '#') && params->precision_flag
+		&& params->precision == 0)
+	{
+		if (params->specifier == 'o')
+			ft_putstr("0");
+	}
+	else if (params->specifier == 'd' || params->specifier == 'i')
+	{
+		if (params->sign == 0 && ft_printf_str_contains(params->flags, '+'))
+			ft_putchar('+');
+		else if (params->sign == 0 && ft_printf_str_contains(params->flags, ' '))
+			ft_putchar(' ');
+		else if (params->sign == 1)
+			ft_putchar('-');
+	}
 }

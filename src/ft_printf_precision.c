@@ -17,7 +17,7 @@ int	ft_printf_precision_flag(char *str)
 	return (ft_str_includes(str, '.') ? 1: 0);
 }
 
-size_t	ft_printf_precision(char *str)
+size_t	ft_printf_precision(char *str, va_list ap)
 {
 	size_t i;
 
@@ -30,5 +30,7 @@ size_t	ft_printf_precision(char *str)
 	}
 	if (!str[i])
 		return (0);
+	if (str[i] == '*')
+		return (va_arg(ap, int));
 	return (ft_atoi(str + i + 1));
 }

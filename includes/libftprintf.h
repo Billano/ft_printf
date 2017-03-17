@@ -44,12 +44,13 @@ int ft_printf(const char *format, ...);
 
 int ft_specifier_printf(char c);
 char *ft_printf_str_trim(const char *str);
-t_param *ft_printf_params_init(char *str);
+t_param *ft_printf_params_init(char *str, va_list ap);
 char	*ft_printf_flags(char *str);
-size_t	ft_printf_width(char *str);
-size_t	ft_printf_precision(char *str);
+size_t	ft_printf_width(char *str, va_list ap);
+size_t	ft_printf_precision(char *str, va_list ap);
 char	*ft_printf_length(char *str);
 int	ft_printf_precision_flag(char *str);
+int	ft_printf_symbol(char *flags);
 
 // %
 size_t	ft_printf_percent(t_param *params);

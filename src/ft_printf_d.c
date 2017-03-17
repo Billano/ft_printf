@@ -27,6 +27,8 @@ size_t	ft_printf_d_l(va_list ap, t_param *params)
 	}
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
+	if (params->precision_flag && params->precision == 0)
+		length = 0;
 	ft_print_d(params, length, nbr);
 	if (params->symbol == 1)
 		length += 1;
@@ -50,6 +52,8 @@ size_t	ft_printf_d_h(va_list ap, t_param *params)
 	}
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
+	if (params->precision_flag && params->precision == 0)
+		length = 0;
 	ft_print_d(params, length, nbr);
 	if (params->symbol == 1)
 		length += 1;
@@ -73,6 +77,8 @@ size_t	ft_printf_d_hh(va_list ap, t_param *params)
 	}
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
+	if (params->precision_flag && params->precision == 0)
+		length = 0;
 	ft_print_d(params, length, nbr);
 	if (params->symbol == 1)
 		length += 1;
@@ -96,6 +102,8 @@ size_t	ft_printf_d_i(va_list ap, t_param *params)
 	}
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
+	if (params->precision_flag && params->precision == 0)
+		length = 0;
 	ft_print_d(params, length, nbr);
 	if (params->symbol == 1)
 		length += 1;

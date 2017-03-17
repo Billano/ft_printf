@@ -20,7 +20,7 @@ char	*ft_uitoa_base_l(unsigned long long int value, int base)
 	char					*nb;
 
 	nb = ft_strdup("0123456789abcdef");
-	if (!value || base < 2 || base > 16)
+	if (value == 0 || base < 2 || base > 16)
 		return ("0");
 	tmp = value;
 	len = 0;
@@ -47,7 +47,7 @@ char	*ft_uitoa_base(unsigned long long int value, int base)
 	char					*nb;
 
 	nb = ft_strdup("0123456789ABCDEF");
-	if (!value || base < 2 || base > 16)
+	if (value == 0 || base < 2 || base > 16)
 		return ("0");
 	tmp = value;
 	len = 0;
@@ -74,7 +74,7 @@ char	*ft_itoa_base(long long int value, int base)
 	char					*nb;
 
 	nb = ft_strdup("0123456789ABCDEF");
-	if (!value || base < 2 || base > 16)
+	if (value == 0 || base < 2 || base > 16)
 		return ("0");
 	if (value < 0)
 		value *= -1;

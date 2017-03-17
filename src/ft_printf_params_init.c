@@ -29,5 +29,6 @@ t_param	*ft_printf_params_init(char *str)
 	if (ft_printf_str_contains(params->flags, '+') ||\
 		ft_printf_str_contains(params->flags, ' '))
 		params->symbol = 1;
+	params->precision_flag = ft_printf_precision_flag(str);
 	return (params);
 }

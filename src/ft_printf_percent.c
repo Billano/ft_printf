@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_precision.c                              :+:      :+:    :+:   */
+/*   ft_printf_percent.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/09 03:28:00 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/03/09 03:28:01 by eurodrig         ###   ########.fr       */
+/*   Created: 2017/03/16 04:40:39 by eurodrig          #+#    #+#             */
+/*   Updated: 2017/03/16 04:40:41 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
 
-int	ft_printf_precision_flag(char *str)
+size_t	ft_printf_percent(t_param *params)
 {
-	return (ft_str_includes(str, '.') ? 1: 0);
-}
-
-size_t	ft_printf_precision(char *str)
-{
-	size_t i;
-
-	i = 0;
-	while (str[i])
+	if (ft_printf_str_contains(params->flags, '-'))
 	{
-		if (str[i] == '.')
-			break ;
-		i++;
+		ft_putchar('%');
+		ft_print_blank_s(params, 1);
 	}
-	if (!str[i])
-		return (0);
-	return (ft_atoi(str + i + 1));
+	else
+	{
+		ft_print_blank_s(params, 1);
+		ft_putchar('%');
+	}
+	return (ft_max_number(1, params->width));
 }

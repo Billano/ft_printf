@@ -77,6 +77,7 @@ char				*ft_strncat(char *s1, const char *s2, size_t n);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
+int		ft_str_includes(char *str, char c);
 char				*ft_strnew(size_t size);
 void				ft_strdel(char **as);
 void				ft_strclr(char *s);

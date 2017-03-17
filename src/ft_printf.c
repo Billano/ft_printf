@@ -32,10 +32,7 @@ int	ft_printf(const char *format, ...)
 			params = ft_printf_params_init(s);
 			trimmed_length = ft_strlen(s);
 			if (*s && s[trimmed_length - 1] == '%')
-			{
-				ft_putstr(s);
-				str_length += trimmed_length;
-			}
+				str_length += ft_printf_percent(params);
 			else if (*s && s[trimmed_length - 1] == 's')
 				str_length += ft_printf_s(ap, params);
 			else if (*s && s[trimmed_length - 1] == 'S')
@@ -67,15 +64,14 @@ int	ft_printf(const char *format, ...)
 			}
 			else
 				va_arg(ap, void *);
-
 			format += trimmed_length;
 		}
-		str_length += 1;
 		if (!*format)
 			break;
 		if (*format != '%')
 		{
 		ft_putchar(*format);
+		str_length += 1;
 		format++;
 		}
 	}

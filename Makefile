@@ -124,7 +124,7 @@ PF += $(P)ft_printf_str_trim.c
 PF += $(P)ft_printf_width.c
 PF += $(P)ft_printf.c
 PF += $(P)ft_putchar_n_bytes.c
-PF += $(P)ft_str_contains.c
+PF += $(P)ft_printf_str_contains.c
 PF += $(P)ft_wstrlen.c
 PF += $(P)ft_itoa_base.c
 PF += $(P)ft_printf_d.c
@@ -139,6 +139,7 @@ PF += $(P)ft_printf_x.c
 PF += $(P)ft_printf_x_helper.c
 PF += $(P)ft_printf_lx.c
 PF += $(P)ft_printf_lx_helper.c
+PF += $(P)ft_printf_percent.c
 
 OF = btree_apply_infix.o
 OF += btree_apply_prefix.o
@@ -244,7 +245,7 @@ OF += ft_printf_str_trim.o
 OF += ft_printf_width.o
 OF += ft_printf.o
 OF += ft_putchar_n_bytes.o
-OF += ft_str_contains.o
+OF += ft_printf_str_contains.o
 OF += ft_wstrlen.o
 OF += ft_itoa_base.o
 OF += ft_printf_d.o
@@ -259,6 +260,7 @@ OF += ft_printf_x.o
 OF += ft_printf_x_helper.o
 OF += ft_printf_lx.o
 OF += ft_printf_lx_helper.o
+OF += ft_printf_percent.o
 
 all: $(NAME)
 

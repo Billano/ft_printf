@@ -14,11 +14,11 @@
 
 void	ft_print_sign(t_param *params)
 {
-	if (ft_printf_str_contains(params->flags, '#'))
+	if (ft_printf_str_contains(params->flags, '#') && params->sign == 0)
 	{
-		if (params->specifier == 'o' && params->sign == 0)
+		if (params->specifier == 'o')
 			ft_putstr("0");
-		else if (params->specifier == 'x' || params->specifier == 'p')
+		else if ((params->specifier == 'x' || params->specifier == 'p'))
 			ft_putstr("0x");
 		else if (params->specifier == 'X')
 			ft_putstr("0X");

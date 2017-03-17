@@ -35,6 +35,7 @@ typedef struct		s_param
 	int			symbol;
 	size_t 	strlen;
 	char		specifier;
+	int			precision_flag;
 }					t_param;
 
 int ft_printf(const char *format, ...);
@@ -48,6 +49,10 @@ char	*ft_printf_flags(char *str);
 size_t	ft_printf_width(char *str);
 size_t	ft_printf_precision(char *str);
 char	*ft_printf_length(char *str);
+int	ft_printf_precision_flag(char *str);
+
+// %
+size_t	ft_printf_percent(t_param *params);
 
 // s, S
 void ft_printf_print_lsp(t_param *params, wchar_t *str);

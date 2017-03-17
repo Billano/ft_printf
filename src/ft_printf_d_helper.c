@@ -22,15 +22,11 @@ void ft_print_d_helper(t_param *params, size_t length, char *nbr)
 	else
 	{
 		ft_print_blank_d(params, length);
-		// if (ft_printf_str_contains(params->flags, '#') && (params->specifier\
-		// 	== 'o' || params->specifier == 'x' || params->specifier == 'X') &&\
-		// 	length == 1 && *nbr == '0')
-		// 	;
-		// else
-			ft_print_sign(params);
+		ft_print_sign(params);
 	}
 	ft_print_zero(params, length);
-	ft_putstr(nbr);
+	if (!(params->precision_flag && *nbr == '0' && params->sign == 0))
+		ft_putstr(nbr);
 }
 void	ft_print_d(t_param *params, size_t length, char *nbr)
 {
@@ -38,7 +34,8 @@ void	ft_print_d(t_param *params, size_t length, char *nbr)
 	{
 		ft_print_sign(params);
 		ft_print_zero(params, length);
-		ft_putstr(nbr);
+		if (!(params->precision_flag && *nbr == '0' && params->sign == -1))
+			ft_putstr(nbr);
 		ft_print_blank_d(params, length);
 	}
 	else
@@ -57,6 +54,8 @@ size_t	ft_printf_d_z(va_list ap, t_param *params)
 	n = va_arg(ap, size_t);
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
+	if (params->precision_flag && params->precision == 0)
+		length = 0;
 	ft_print_d(params, length, nbr);
 	if (params->symbol == 1)
 		length += 1;
@@ -80,6 +79,8 @@ size_t	ft_printf_d_j(va_list ap, t_param *params)
 	}
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
+	if (params->precision_flag && params->precision == 0)
+		length = 0;
 	ft_print_d(params, length, nbr);
 	if (params->symbol == 1)
 		length += 1;
@@ -103,6 +104,8 @@ size_t	ft_printf_d_ll(va_list ap, t_param *params)
 	}
 	nbr = ft_itoa_base(n, 10);
 	length = ft_strlen(nbr);
+	if (params->precision_flag && params->precision == 0)
+		length = 0;
 	ft_print_d(params, length, nbr);
 	if (params->symbol == 1)
 		length += 1;

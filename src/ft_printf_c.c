@@ -12,48 +12,34 @@
 
 #include "../includes/libftprintf.h"
 
-size_t	ft_printf_print_lc(wchar_t n)
+void	ft_printf_print_lc(wchar_t n)
 {
 	if (n <= 127)
-	{
 		ft_putchar_n_bytes(n, 1);
-		return (1);
-	}
 	else if (n <= 2047)
-	{
 		ft_putchar_n_bytes(n, 2);
-		return (2);
-	}
 	else if (n <= 65535)
-	{
 		ft_putchar_n_bytes(n, 3);
-		return (3);
-	}
 	else if (n <= 1114111)
-	{
 		ft_putchar_n_bytes(n, 4);
-		return (4);
-	}
-	return (0);
 }
 
 size_t	ft_printf_lc(va_list ap, t_param *params)
 {
 	wchar_t			n;
-	size_t length;
 
 	n = (wchar_t)va_arg(ap, wint_t);
 	if (ft_printf_str_contains(params->flags, '-'))
 	{
-		length = ft_printf_print_lc(n);
+		ft_printf_print_lc(n);
 		ft_print_blank_s(params, 1);
 	}
 	else
 	{
 		ft_print_blank_s(params, 1);
-		length = ft_printf_print_lc(n);
+		ft_printf_print_lc(n);
 	}
-	return (ft_max_number(params->width, length));
+	return (ft_max_number(params->width, 1));
 }
 
 size_t	ft_printf_c(va_list ap, t_param *params)

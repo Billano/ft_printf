@@ -12,6 +12,32 @@
 
 #include "../includes/libftprintf.h"
 
+size_t	ft_uitoa_base_helper(unsigned long long int tmp, int base)
+{
+	size_t length;
+
+	length = 0;
+	while (tmp > 0)
+	{
+		tmp /= base;
+		length++;
+	}
+	return (length);
+}
+
+size_t	ft_itoa_base_helper(long long int tmp, int base)
+{
+	size_t length;
+
+	length = 0;
+	while (tmp > 0)
+	{
+		tmp /= base;
+		length++;
+	}
+	return (length);
+}
+
 char	*ft_uitoa_base_l(unsigned long long int value, int base)
 {
 	unsigned long long int	tmp;
@@ -21,14 +47,12 @@ char	*ft_uitoa_base_l(unsigned long long int value, int base)
 
 	nb = ft_strdup("0123456789abcdef");
 	if (value == 0 || base < 2 || base > 16)
-		return ("0");
-	tmp = value;
-	len = 0;
-	while (tmp > 0)
 	{
-		tmp /= base;
-		len++;
+		ft_memdel((void **)&nb);
+		return (str = ft_strdup("0"));
 	}
+	tmp = value;
+	len = ft_uitoa_base_helper(tmp, base);
 	str = ft_strnew(len);
 	tmp = value;
 	while (tmp && len--)
@@ -36,6 +60,7 @@ char	*ft_uitoa_base_l(unsigned long long int value, int base)
 		str[len] = nb[tmp % base];
 		tmp /= base;
 	}
+	ft_memdel((void **)&nb);
 	return (str);
 }
 
@@ -48,14 +73,12 @@ char	*ft_uitoa_base(unsigned long long int value, int base)
 
 	nb = ft_strdup("0123456789ABCDEF");
 	if (value == 0 || base < 2 || base > 16)
-		return ("0");
-	tmp = value;
-	len = 0;
-	while (tmp > 0)
 	{
-		tmp /= base;
-		len++;
+		ft_memdel((void **)&nb);
+		return (str = ft_strdup("0"));
 	}
+	tmp = value;
+	len = ft_uitoa_base_helper(tmp, base);
 	str = ft_strnew(len);
 	tmp = value;
 	while (tmp && len--)
@@ -63,6 +86,7 @@ char	*ft_uitoa_base(unsigned long long int value, int base)
 		str[len] = nb[tmp % base];
 		tmp /= base;
 	}
+	ft_memdel((void **)&nb);
 	return (str);
 }
 
@@ -75,16 +99,14 @@ char	*ft_itoa_base(long long int value, int base)
 
 	nb = ft_strdup("0123456789ABCDEF");
 	if (value == 0 || base < 2 || base > 16)
-		return ("0");
+	{
+		ft_memdel((void **)&nb);
+		return (str = ft_strdup("0"));
+	}
 	if (value < 0)
 		value *= -1;
 	tmp = value;
-	len = 0;
-	while (tmp > 0)
-	{
-		tmp /= base;
-		len++;
-	}
+	len = ft_itoa_base_helper(tmp, base);
 	str = ft_strnew(len);
 	tmp = value;
 	while (tmp && len--)
@@ -92,5 +114,6 @@ char	*ft_itoa_base(long long int value, int base)
 		str[len] = nb[tmp % base];
 		tmp /= base;
 	}
+	ft_memdel((void **)&nb);
 	return (str);
 }

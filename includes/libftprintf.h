@@ -56,6 +56,8 @@ int	ft_printf_symbol(char *flags);
 size_t	ft_printf_percent(t_param *params);
 
 // s, S
+void ft_printf_ls_helper(t_param *params, wchar_t *str, size_t length);
+void ft_printf_s_helper(t_param *params, char *str, size_t length);
 void ft_printf_print_lsp(t_param *params, wchar_t *str);
 void ft_printf_print_ls(wchar_t *str);
 size_t ft_printf_ls(va_list ap, t_param *params);
@@ -130,4 +132,5 @@ size_t	ft_wstrlen(wchar_t *str);
 char	*ft_itoa_base(long long int value, int base);
 char	*ft_uitoa_base(unsigned long long int value, int base);
 char	*ft_uitoa_base_l(unsigned long long int value, int base);
+void ft_multiple_memdel(const char *format, ...);
 #endif

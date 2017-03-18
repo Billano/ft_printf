@@ -18,10 +18,11 @@ int	ft_printf(const char *format, ...)
 	char *s;
 	size_t trimmed_length;
 	size_t	str_length;
-	t_param *params = NULL;
+	t_param *params;
 
 	va_start(ap, format);
 	str_length = 0;
+	params = 0;
 	while (*format)
 	{
 		if (*format == '%')
@@ -67,14 +68,16 @@ int	ft_printf(const char *format, ...)
 			else
 				va_arg(ap, void *);
 			format += trimmed_length;
+			ft_multiple_memdel("4", (void **)&(params->flags),
+			(void **)&(params->length), (void **)&params, (void **)&s);
 		}
 		if (!*format)
-			break;
+			break ;
 		if (*format != '%')
 		{
-		ft_putchar(*format);
-		str_length += 1;
-		format++;
+			ft_putchar(*format);
+			str_length += 1;
+			format++;
 		}
 	}
 	va_end(ap);

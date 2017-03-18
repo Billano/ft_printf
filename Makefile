@@ -143,6 +143,8 @@ PF += $(P)ft_printf_percent.c
 PF += $(P)ft_printf_symbol.c
 PF += $(P)ft_printf_n_helper.c
 PF += $(P)ft_printf_n.c
+PF += $(P)ft_multiple_memdel.c
+PF += $(P)ft_printf_s_helper.c
 
 OF = btree_apply_infix.o
 OF += btree_apply_prefix.o
@@ -267,6 +269,8 @@ OF += ft_printf_percent.o
 OF += ft_printf_symbol.o
 OF += ft_printf_n.o
 OF += ft_printf_n_helper.o
+OF += ft_multiple_memdel.o
+OF += ft_printf_s_helper.o
 
 all: $(NAME)
 

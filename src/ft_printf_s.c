@@ -68,22 +68,7 @@ size_t	ft_printf_ls(va_list ap, t_param *params)
 	length = ft_wstrlen(str);
 	if (params->precision < length && params->precision != 0)
 		length = params->precision;
-	if (ft_printf_str_contains(params->flags, '-'))
-	{
-		if (params->precision)
-			ft_printf_print_lsp(params, str);
-		else
-			ft_printf_print_ls(str);
-		ft_print_blank_s(params, length);
-	}
-	else
-	{
-		ft_print_blank_s(params, length);
-		if (params->precision)
-			ft_printf_print_lsp(params, str);
-		else
-			ft_printf_print_ls(str);
-	}
+	ft_printf_ls_helper(params, str, length);
 	return (ft_max_number(params->width, length));
 }
 
@@ -120,16 +105,7 @@ size_t	ft_printf_s(va_list ap, t_param *params)
 		length = ft_strlen(str);
 		if (params->precision < length && params->precision != 0)
 			length = params->precision;
-		if (ft_printf_str_contains(params->flags, '-'))
-		{
-			ft_printf_print_s(params, str);
-			ft_print_blank_s(params, length);
-		}
-		else
-		{
-			ft_print_blank_s(params, length);
-			ft_printf_print_s(params, str);
-		}
+		ft_printf_s_helper(params, str, length);
 		return (ft_max_number(params->width, length));
 	}
 	return (ft_printf_ls(ap, params));

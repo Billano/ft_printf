@@ -44,6 +44,7 @@ void	ft_print_d(t_param *params, size_t length, char *nbr)
 	{
 		ft_print_d_helper(params, length, nbr);
 	}
+	ft_memdel((void **)&nbr);
 }
 
 size_t	ft_printf_d_size_t(va_list ap, t_param *params)

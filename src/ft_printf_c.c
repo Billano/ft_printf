@@ -12,7 +12,7 @@
 
 #include "../includes/libftprintf.h"
 
-void	ft_printf_print_lc(wchar_t n)
+size_t	ft_printf_print_lc(wchar_t n)
 {
 	if (n <= 127)
 	{

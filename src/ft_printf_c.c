@@ -34,6 +34,7 @@ void	ft_printf_print_lc(wchar_t n)
 		ft_putchar_n_bytes(n, 4);
 		return (4);
 	}
+	return (0);
 }
 
 size_t	ft_printf_lc(va_list ap, t_param *params)

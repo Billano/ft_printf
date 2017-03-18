@@ -65,7 +65,7 @@ void ft_printf_print_s(t_param *params, char *str);
 size_t ft_printf_s(va_list ap, t_param *params);
 
 // c, C
-void	ft_printf_print_lc(wchar_t n);
+size_t	ft_printf_print_lc(wchar_t n);
 size_t	ft_printf_lc(va_list ap, t_param *params);
 size_t	ft_printf_c(va_list ap, t_param *params);
 

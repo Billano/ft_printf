@@ -12,23 +12,43 @@
 
 #include "../includes/libftprintf.h"
 
-void	ft_printf_print_lc(wint_t n)
+void	ft_printf_print_lc(wchar_t n)
 {
-	if (n <= 127)
-		ft_putchar_n_bytes(n, 1);
-	else if (n <= 2047)
-		ft_putchar_n_bytes(n, 2);
-	else if (n <= 65535)
-		ft_putchar_n_bytes(n, 3);
-	else if (n <= 1114111)
-		ft_putchar_n_bytes(n, 4);
+	if (chr <= 0x7F)
+		ft_putchar(chr);
+	else if (chr <= 0x7FF)
+	{
+		ft_putchar((chr >> 6) + 0xC0);
+		ft_putchar((chr & 0x3F) + 0x80);
+	}
+	else if (chr <= 0xFFFF)
+	{
+		ft_putchar((chr >> 12) + 0xE0);
+		ft_putchar(((chr >> 6) & 0x3F) + 0x80);
+		ft_putchar((chr & 0x3F) + 0x80);
+	}
+	else if (chr <= 0x10FFFF)
+	{
+		ft_putchar((chr >> 18) + 0xF0);
+		ft_putchar(((chr >> 12) & 0x3F) + 0x80);
+		ft_putchar(((chr >> 6) & 0x3F) + 0x80);
+		ft_putchar((chr & 0x3F) + 0x80);
+	}
+	// if (n <= 127)
+	// 	ft_putchar_n_bytes(n, 1);
+	// else if (n <= 2047)
+	// 	ft_putchar_n_bytes(n, 2);
+	// else if (n <= 65535)
+	// 	ft_putchar_n_bytes(n, 3);
+	// else if (n <= 1114111)
+	// 	ft_putchar_n_bytes(n, 4);
 }
 
 size_t	ft_printf_lc(va_list ap, t_param *params)
 {
-	wint_t			n;
+	wchar_t			n;
 
-	n = va_arg(ap, wint_t);
+	n = (wchar_t)va_arg(ap, wint_t);
 	if (ft_printf_str_contains(params->flags, '-'))
 	{
 		ft_printf_print_lc(n);

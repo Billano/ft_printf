@@ -6,80 +6,108 @@
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 22:01:12 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/02/08 00:55:50 by eurodrig         ###   ########.fr       */
+/*   Updated: 2017/03/19 04:13:28 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
 
-int	ft_printf(const char *format, ...)
+void	ft_printf_helper_d(va_list ap, t_param *params, int *length, char *s)
 {
-	va_list ap;
-	char *s;
-	size_t trimmed_length;
-	size_t	str_length;
-	t_param *params;
+	if (*s && s[params->strlen - 1] == 'X')
+		*length += ft_printf_lx(ap, params);
+	else if (*s && s[params->strlen - 1] == 'p')
+	{
+		params->flags = ft_strcat(params->flags, "ll#");
+		*length += ft_printf_x_l_int(ap, params);
+	}
+	else if (*s && s[params->strlen - 1] == 'n')
+		ft_printf_n(ap, params, *length);
+	else
+		va_arg(ap, void *);
+}
 
-	va_start(ap, format);
-	str_length = 0;
+void	ft_printf_helper_c(va_list ap, t_param *params, int *length, char *s)
+{
+	if (*s && s[params->strlen - 1] == 's')
+		*length += ft_printf_s(ap, params);
+	else if (*s && s[params->strlen - 1] == 'S')
+		*length += ft_printf_ls(ap, params);
+	else if (*s && s[params->strlen - 1] == 'c')
+		*length += ft_printf_c(ap, params);
+	else if (*s && s[params->strlen - 1] == 'C')
+		*length += ft_printf_lc(ap, params);
+	else if (*s && (s[params->strlen - 1] == 'd' ||
+		s[params->strlen - 1] == 'i'))
+		*length += ft_printf_d(ap, params);
+	else if (*s && s[params->strlen - 1] == 'D')
+		*length += ft_printf_d_l_int(ap, params);
+	else if (*s && s[params->strlen - 1] == 'u')
+		*length += ft_printf_u(ap, params);
+	else if (*s && s[params->strlen - 1] == 'U')
+		*length += ft_printf_u_l_int(ap, params);
+	else if (*s && s[params->strlen - 1] == 'o')
+		*length += ft_printf_o(ap, params);
+	else if (*s && s[params->strlen - 1] == 'O')
+		*length += ft_printf_o_l_int(ap, params);
+	else if (*s && s[params->strlen - 1] == 'x')
+		*length += ft_printf_x(ap, params);
+	else
+		ft_printf_helper_d(ap, params, length, s);
+}
+
+int		ft_printf_helper_b(va_list ap, const char **format)
+{
+	t_param	*params;
+	int		length;
+	char	*s;
+
 	params = 0;
+	length = 0;
+	if (**format == '%')
+	{
+		(*format)++;
+		s = ft_printf_str_trim(*format);
+		params = ft_printf_params_init(s, ap);
+		if (*s && s[params->strlen - 1] == '%')
+			length += ft_printf_percent(params);
+		else
+			ft_printf_helper_c(ap, params, &length, s);
+		(*format) += params->strlen;
+		ft_multiple_memdel("4", (void **)&(params->flags),
+			(void **)&(params->length), (void **)&params, (void **)&s);
+	}
+	return (length);
+}
+
+int		ft_printf_helper_a(va_list ap, const char *format)
+{
+	int		length;
+
+	length = 0;
 	while (*format)
 	{
-		if (*format == '%')
-		{
-			format++;
-			s = ft_printf_str_trim(format);
-			trimmed_length = ft_strlen(s);
-			params = ft_printf_params_init(s, ap);
-			trimmed_length = ft_strlen(s);
-			if (*s && s[trimmed_length - 1] == '%')
-				str_length += ft_printf_percent(params);
-			else if (*s && s[trimmed_length - 1] == 's')
-				str_length += ft_printf_s(ap, params);
-			else if (*s && s[trimmed_length - 1] == 'S')
-				str_length += ft_printf_ls(ap, params);
-			else if (*s && s[trimmed_length - 1] == 'c')
-				str_length += ft_printf_c(ap, params);
-			else if (*s && s[trimmed_length - 1] == 'C')
-				str_length += ft_printf_lc(ap, params);
-			else if (*s && (s[trimmed_length - 1] == 'd' || s[trimmed_length - 1] == 'i'))
-				str_length += ft_printf_d(ap, params);
-			else if (*s && s[trimmed_length - 1] == 'D')
-				str_length += ft_printf_d_l_int(ap, params);
-			else if (*s && s[trimmed_length - 1] == 'u')
-				str_length += ft_printf_u(ap, params);
-			else if (*s && s[trimmed_length - 1] == 'U')
-				str_length += ft_printf_u_l_int(ap, params);
-			else if (*s && s[trimmed_length - 1] == 'o')
-				str_length += ft_printf_o(ap, params);
-			else if (*s && s[trimmed_length - 1] == 'O')
-				str_length += ft_printf_o_l_int(ap, params);
-			else if (*s && s[trimmed_length - 1] == 'x')
-				str_length += ft_printf_x(ap, params);
-			else if (*s && s[trimmed_length - 1] == 'X')
-				str_length += ft_printf_lx(ap, params);
-			else if (*s && s[trimmed_length - 1] == 'p')
-			{
-				params->flags = ft_strcat(params->flags, "ll#");
-				str_length += ft_printf_x_l_int(ap, params);
-			}
-			else if (*s && s[trimmed_length - 1] == 'n')
-				ft_printf_n(ap, params, str_length);
-			else
-				va_arg(ap, void *);
-			format += trimmed_length;
-			ft_multiple_memdel("4", (void **)&(params->flags),
-			(void **)&(params->length), (void **)&params, (void **)&s);
-		}
+		length += ft_printf_helper_b(ap, &format);
 		if (!*format)
 			break ;
 		if (*format != '%')
 		{
 			ft_putchar(*format);
-			str_length += 1;
+			length += 1;
 			format++;
 		}
 	}
+	return (length);
+}
+
+int		ft_printf(const char *format, ...)
+{
+	va_list ap;
+	int		length;
+
+	length = 0;
+	va_start(ap, format);
+	length = ft_printf_helper_a(ap, format);
 	va_end(ap);
-	return (str_length);
+	return (length);
 }

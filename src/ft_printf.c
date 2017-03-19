@@ -56,7 +56,7 @@ void	ft_printf_helper_c(va_list ap, t_param *params, int *length, char *s)
 		ft_printf_helper_d(ap, params, length, s);
 }
 
-int		ft_printf_helper_b(va_list ap, const char **format, int *length)
+void		ft_printf_helper_b(va_list ap, const char **format, int *length)
 {
 	t_param	*params;
 	char	*s;
@@ -75,7 +75,6 @@ int		ft_printf_helper_b(va_list ap, const char **format, int *length)
 		ft_multiple_memdel("4", (void **)&(params->flags),
 			(void **)&(params->length), (void **)&params, (void **)&s);
 	}
-	return (*length);
 }
 
 int		ft_printf_helper_a(va_list ap, const char *format)
@@ -85,7 +84,7 @@ int		ft_printf_helper_a(va_list ap, const char *format)
 	length = 0;
 	while (*format)
 	{
-		length += ft_printf_helper_b(ap, &format, &length);
+		ft_printf_helper_b(ap, &format, &length);
 		if (!*format)
 			break ;
 		if (*format != '%')

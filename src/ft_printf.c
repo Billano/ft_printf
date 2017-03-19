@@ -6,7 +6,7 @@
 /*   By: eurodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 22:01:12 by eurodrig          #+#    #+#             */
-/*   Updated: 2017/03/19 04:13:28 by eurodrig         ###   ########.fr       */
+/*   Updated: 2017/03/19 04:55:24 by eurodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_printf_helper_c(va_list ap, t_param *params, int *length, char *s)
 		ft_printf_helper_d(ap, params, length, s);
 }
 
-void		ft_printf_helper_b(va_list ap, const char **format, int *length)
+void	ft_printf_helper_b(va_list ap, const char **format, int *length)
 {
 	t_param	*params;
 	char	*s;

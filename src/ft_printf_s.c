@@ -21,7 +21,7 @@ void	ft_printf_print_lsp(t_param *params, wchar_t *str)
 	while (str[i] && i < params->precision)
 	{
 		n = str[i];
-		if (n <= 127)
+		if (n <= 255)
 			ft_putchar(str[i]);
 		else if (n <= 2047)
 			ft_putchar_n_bytes(str[i], 2);
@@ -42,7 +42,7 @@ void	ft_printf_print_ls(wchar_t *str)
 	while (str[i])
 	{
 		n = str[i];
-		if (n <= 127)
+		if (n <= 255)
 			ft_putchar(str[i]);
 		else if (n <= 2047)
 			ft_putchar_n_bytes(str[i], 2);

@@ -70,7 +70,7 @@ int		ft_printf_helper_b(va_list ap, const char **format, int *length)
 		if (*s && s[params->strlen - 1] == '%')
 			*length += ft_printf_percent(params);
 		else
-			ft_printf_helper_c(ap, params, &length, s);
+			ft_printf_helper_c(ap, params, length, s);
 		(*format) += params->strlen;
 		ft_multiple_memdel("4", (void **)&(params->flags),
 			(void **)&(params->length), (void **)&params, (void **)&s);

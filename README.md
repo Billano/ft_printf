@@ -1,4 +1,4 @@
-# FT_Prinftf
+# FT_Printf
 
 This project is a basic implementation of the C function printf. It represents a great exercise in programming because it enables the discovery of variadic functions in C and its a great example of a basic "dispatcher" via the use of and array of function's pointers. The key to a successful **ft_printf** is a well-structured and good extensible code.
 
